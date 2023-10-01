@@ -14,7 +14,7 @@ export const PostCard: React.FC<PostCardProps> = ({ title, url }) => {
     >
       <div className="flex flex-col">
         <p className="font-bold text-neutral-100">{title}</p>
-        <p>View public work here</p>
+        <p className="text-secondary">33K Views</p>
       </div>
       <div className="text-neutral-300">
         <ArrowIcon />

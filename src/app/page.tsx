@@ -9,10 +9,10 @@ export default function Home() {
         <p className="text-xl">hey, I am irere 🖐!</p>
         <p>
           I try to keep things simple. You will find writing about technologies
-          Iam interested in at the time, or how Iam learning and growing in my
+          I am interested in at the time, or how I am learning and growing in my
           career, sharing knowledge along the way.
         </p>
-        <div className="pt-7">
+        <div className="flex flex-col gap-4 pt-7">
           {allBlogs.slice(0, 2).map((b) => (
             <PostCard url={b.url} title={b.title} key={b._id} />
           ))}
