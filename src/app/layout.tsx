@@ -3,6 +3,7 @@ import "../styles/globals.css";
 import type { Metadata } from "next";
 
 import { Inter } from "next/font/google";
+import { Providers } from "./providers";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -21,7 +22,7 @@ export default function RootLayout({
       <body className="antialiased max-w-2xl mb-40 flex flex-col md:flex-row mx-4 mt-6 lg:mx-auto">
         <main className="flex-auto mt-3 m-w-0">
           <Sidebar />
-          {children}
+          <Providers>{children}</Providers>
         </main>
       </body>
     </html>
