@@ -4,9 +4,10 @@ import { ArrowIcon } from "./ArrowIcon";
 type PostCardProps = {
   title: string;
   url: string;
+  summary: string;
 };
 
-export const PostCard: React.FC<PostCardProps> = ({ title, url }) => {
+export const PostCard: React.FC<PostCardProps> = ({ title, url, summary }) => {
   return (
     <a
       href={`/blog/${url}`}
@@ -14,7 +15,7 @@ export const PostCard: React.FC<PostCardProps> = ({ title, url }) => {
     >
       <div className="flex flex-col">
         <p className="font-bold text-neutral-100">{title}</p>
-        <p className="text-secondary">33K Views</p>
+        <p className="text-secondary">{summary}</p>
       </div>
       <div className="text-neutral-300">
         <ArrowIcon />

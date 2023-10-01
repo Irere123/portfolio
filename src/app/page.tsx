@@ -13,7 +13,12 @@ export default function Home() {
         </p>
         <div className="flex flex-col gap-4 pt-7">
           {allBlogs.slice(0, 2).map((b) => (
-            <PostCard url={b.url} title={b.title} key={b._id} />
+            <PostCard
+              url={b.url}
+              title={b.title}
+              key={b._id}
+              summary={b.summary}
+            />
           ))}
         </div>
       </div>
