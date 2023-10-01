@@ -1,10 +1,9 @@
-import { MainLayout } from "@/components/MainLayout";
 import { PostCard } from "@/components/PostCard";
 import { allBlogs } from "contentlayer/generated";
 
 export default function Home() {
   return (
-    <MainLayout>
+    <section>
       <div className="space-y-2 mt-3">
         <p className="text-xl">hey, I am irere 🖐!</p>
         <p>
@@ -18,6 +17,6 @@ export default function Home() {
           ))}
         </div>
       </div>
-    </MainLayout>
+    </section>
   );
 }

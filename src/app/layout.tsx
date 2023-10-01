@@ -1,3 +1,4 @@
+import { Sidebar } from "@/components/Sidebar";
 import "../styles/globals.css";
 import type { Metadata } from "next";
 
@@ -18,7 +19,10 @@ export default function RootLayout({
   return (
     <html lang="en" className="text-light-gray bg-background">
       <body className="antialiased max-w-2xl mb-40 flex flex-col md:flex-row mx-4 mt-6 lg:mx-auto">
-        <main className="flex-auto mt-3 m-w-0">{children}</main>
+        <main className="flex-auto mt-3 m-w-0">
+          <Sidebar />
+          {children}
+        </main>
       </body>
     </html>
   );

@@ -6,6 +6,7 @@ const Blog = defineDocumentType(() => ({
   fields: {
     title: { type: "string", required: true },
     date: { type: "string", required: true },
+    summary: { type: "string", required: true },
   },
   computedFields: {
     url: {
