@@ -2,22 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --light-gray: #fff;
-  --background: #111010;
-  --foreground: #262626;
-  --border: #363636;
-  --secondary: #5b5b66;
-}
-
-html,
-body {
-  width: 100%;
-  height: 100%;
-  background-color: var(--background);
-  color: var(--light-gray);
-}
-
 ::selection {
   background-color: #47a3f3;
   color: #fefefe;
@@ -27,18 +11,18 @@ html {
   min-width: 360px;
 }
 
-article {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
 h1 {
   font-size: 2rem;
 }
 
 h2 {
   font-size: 1.5rem;
+}
+
+.prose {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .prose .anchor {
@@ -59,7 +43,7 @@ h2 {
   @apply transition-all decoration-neutral-400 dark:decoration-neutral-600 underline-offset-2 decoration-[0.1em];
 }
 
-.anchor:after {
+.prose .anchor:after {
   @apply text-neutral-300 dark:text-neutral-700;
   content: "#";
 }
@@ -69,7 +53,7 @@ h2 {
 }
 
 .prose pre {
-  @apply border border-neutral-800 bg-neutral-900;
+  @apply border border-neutral-800 bg-neutral-900 rounded-md px-3 pb-3;
 }
 
 .prose code {
@@ -112,11 +96,6 @@ input[type="email"] {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-}
-
-.prose .tweet a {
-  text-decoration: inherit;
-  font-weight: inherit;
 }
 
 table {

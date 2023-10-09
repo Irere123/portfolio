@@ -32,7 +32,7 @@ export const Sidebar: React.FC = () => {
                 <Link
                   key={path}
                   className={`
-                  transition-all hover:text-neutral-800 dark:hover:text-neutral-200 flex align-middle
+                  transition-all hover:text-neutral-800  flex align-middle
                   ${!isActive ? "text-neutral-500" : ""}
                 )`}
                   href={`${path}`}
