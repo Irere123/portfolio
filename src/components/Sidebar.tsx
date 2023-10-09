@@ -11,9 +11,6 @@ const navItems = {
   "/blog": {
     name: "blog",
   },
-  "/newsletter": {
-    name: "newsletter",
-  },
 };
 
 export const Sidebar: React.FC = () => {
