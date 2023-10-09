@@ -27,6 +27,20 @@ html {
   min-width: 360px;
 }
 
+article {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+h1 {
+  font-size: 2rem;
+}
+
+h2 {
+  font-size: 1.5rem;
+}
+
 .prose .anchor {
   @apply absolute invisible no-underline;
 
