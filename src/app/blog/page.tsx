@@ -13,7 +13,7 @@ export default function BlogPage() {
     <section>
       <div className="flex flex-col gap-3 mt-6">
         {allBlogs.map((b) => (
-          <Link key={b._id} href={`/blog/${b.url}`}>
+          <Link key={b._id} href={`/blog/${b.slug}`}>
             <p className="text-neutral-900 font-bold">{b.title}</p>
             <p className="text-neutral-600">
               {format(new Date(b.date), "MMMM d, yyyy")}

@@ -11,10 +11,11 @@ const Blog = defineDocumentType(() => ({
   fields: {
     title: { type: "string", required: true },
     date: { type: "string", required: true },
+    image: { type: "string" },
     summary: { type: "string", required: true },
   },
   computedFields: {
-    url: {
+    slug: {
       type: "string",
       resolve: (post) => `${post._raw.flattenedPath}`,
     },

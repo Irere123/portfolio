@@ -14,7 +14,7 @@ export default function Home() {
         <div className="flex flex-col gap-4 pt-7">
           {allBlogs.slice(0, 2).map((b) => (
             <PostCard
-              url={b.url}
+              url={b.slug}
               title={b.title}
               key={b._id}
               summary={b.summary}

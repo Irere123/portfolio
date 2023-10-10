@@ -25,6 +25,11 @@ h2 {
   gap: 10px;
 }
 
+.prose li {
+  list-style: circle;
+  margin-left: 20px;
+}
+
 .prose .anchor {
   @apply absolute invisible no-underline;
 
