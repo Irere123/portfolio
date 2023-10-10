@@ -1,0 +1,37 @@
+---
+title: What does it mean that Javascript is a protype based language
+date: 2023-10-10
+summary: One of the major advantages  of javascript is said to be that it is a protype based language. But what does it mean that javascript is protype based language, and why i that an advantage
+---
+
+**_Prototypal inheritence_** is a form of object-oriented **_code reuse_**. Javascript is one of only
+[mainstream] object-oriented language that use prototypal inheritence. Almost all other object-oriented
+languages are classical.
+
+In **_classical inheritance_**, the programmer writes a class, which defines an object.
+Multiple objects can be instantiated from the same class, so you have code in one place which
+describes several objects in your program. Classes can then be organized into a hierarchy,
+furthering code reuse. More general code is stored in a higher-level class, from which lower level
+classes inherit. This means that an object is sharing code with other objects of the same class,
+as well as with its parent classes.
+
+In the **_prototypal inheritance_** form, objects inherit directly from other objects.
+All of the business about classes goes away. If you want an object, you just write an object.
+But code reuse is still a valuable thing, so objects are allowed to be linked together in a hierarchy.
+In javascript, every object has a secret link to the object which created it, forming a chain.
+When an object is asked for a property that it does not have, its parent object will be asked...
+continually up the chain until the property is found or until the root object is reached
+
+Each function in JavaScript (which are objects themselves) actually has a member called "prototype",
+which is responsible for providing values when an object is asked for them. Having this member allows
+the constructor mechanism (by which objects are constructed from functions) to work. Adding a property
+to the prototype of a function object will make it available to the constructed object, as well as to all
+of the objects which inherit from it.
+
+## Advantages
+
+There may not be a hard and fast rule as to why prototypal inheritance is an advantageous form of code-reuse.
+Code reuse itself is advantageous, and prototypal inheritance is a sensible way of going about it.
+You might argue that prototypal inheritance is a fairly simple model of code reuse, and that code can
+be heavily reused in direct ways.
+But classical languages are certainly able to accomplish this as well.
