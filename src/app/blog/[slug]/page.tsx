@@ -23,7 +23,7 @@ export async function generateMetadata({
 
   const ogImage = image
     ? `https://irere-blog.vercel.app${image}`
-    : `https://irere-blog.vercel.app/og?title=${title}}`;
+    : `https://irere-blog.vercel.app/og?title=${title}`;
 
   return {
     title,

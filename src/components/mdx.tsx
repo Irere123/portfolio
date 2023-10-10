@@ -19,8 +19,18 @@ const CustomLink = (props: any) => {
   return <a target="_blank" ref={`noopener norefferer`} {...props} />;
 };
 
+function Callout(props: any) {
+  return (
+    <div className="px-4 py-3 border border-neutral-200 bg-neutral-50 rounded text-sm flex items-center text-neutral-900 mb-8">
+      <div className="flex items-center w-4 mr-4">{props.emoji}</div>
+      <div className="w-full callout">{props.children}</div>
+    </div>
+  );
+}
+
 const components = {
   a: CustomLink,
+  Callout,
 };
 
 export function Mdx({ code }: { code: string }) {
