@@ -25,6 +25,9 @@ const font = localFont({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://irere-vercel.app"),
+  icons: {
+    icon: "/favicon.ico",
+  },
   title: {
     default: "Irere Emmanuel",
     template: "%s | Irere Emmanuel",
