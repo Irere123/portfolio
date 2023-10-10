@@ -14,12 +14,16 @@ export async function generateMetadata({
 }: {
   params: any;
 }): Promise<Metadata | undefined> {
-  const post = allBlogs.find((post) => post.url === params.slug);
+  const post = allBlogs.find((post) => post.slug === params.slug);
   if (!post) {
     return;
   }
 
-  const { title, url, summary: description, date } = post;
+  const { title, slug, image, summary: description, date } = post;
+
+  const ogImage = image
+    ? `https://irere-blog.vercel.app${image}`
+    : `https://irere-blog.vercel.app/og?title=${title}}`;
 
   return {
     title,
@@ -29,10 +33,10 @@ export async function generateMetadata({
       description,
       type: "article",
       publishedTime: date,
-      url: `https://irere-blog.vercel.app/blog/${url}`,
+      url: `https://irere-blog.vercel.app/blog/${slug}`,
       images: [
         {
-          url: "/irere.jpg",
+          url: ogImage,
         },
       ],
     },
@@ -41,7 +45,7 @@ export async function generateMetadata({
       title,
       description,
       creator: "Irere Emmy",
-      images: [""],
+      images: [ogImage],
     },
   };
 }
@@ -80,7 +84,7 @@ export default async function BlogArticlePage({
 }: {
   params: { slug: string };
 }) {
-  const post = allBlogs.find((post) => post.url === params.slug);
+  const post = allBlogs.find((post) => post.slug === params.slug);
 
   if (!post) {
     notFound();
