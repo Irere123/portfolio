@@ -39,7 +39,7 @@ html {
 }
 
 .prose pre {
-  @apply border border-neutral-800 bg-neutral-900 rounded-md px-3 pb-3;
+  @apply border border-neutral-800 bg-neutral-900 rounded-md;
 }
 
 .prose code {

@@ -10,6 +10,9 @@ const config = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        sans: ["var(--font-local)"],
+      },
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",

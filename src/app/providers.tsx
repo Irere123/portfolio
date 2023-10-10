@@ -12,7 +12,7 @@ export const Providers: React.FC<ProvidersProps> = ({ children }) => {
     <>
       {children}
       <AppProgressBar
-        color="#fff"
+        color="#000"
         shallowRouting
         options={{ showSpinner: false }}
       />

@@ -1,11 +1,27 @@
 import { Sidebar } from "@/components/Sidebar";
-import "../styles/globals.css";
+import "./globals.css";
 import type { Metadata } from "next";
+import clsx from "clsx";
 
-import { Inter } from "next/font/google";
+import localFont from "next/font/local";
 import { Providers } from "./providers";
 
-const inter = Inter({ subsets: ["latin"] });
+const font = localFont({
+  src: [
+    {
+      path: "../../public/fonts/Graphik-Regular.ttf",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "../../public/fonts/Graphik-Medium.ttf",
+      weight: "600",
+      style: "bold",
+    },
+  ],
+  variable: "--font-local",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://irere-vercel.app"),
@@ -44,7 +60,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="text-light-gray bg-background">
+    <html
+      lang="en"
+      className={clsx("text-light-gray bg-background", font.variable)}
+    >
       <body className="antialiased max-w-2xl mb-40 flex flex-col md:flex-row mx-4 mt-6 lg:mx-auto">
         <main className="flex-auto mt-3 m-w-0">
           <Sidebar />
