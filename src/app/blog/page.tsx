@@ -12,7 +12,7 @@ export default function BlogPage() {
   return (
     <section>
       <div className="flex flex-col gap-3 mt-6">
-        {allBlogs.map((b) => (
+        {allBlogs.reverse().map((b) => (
           <Link key={b._id} href={`/blog/${b.slug}`}>
             <p className="text-neutral-900 font-bold">{b.title}</p>
             <p className="text-neutral-600">

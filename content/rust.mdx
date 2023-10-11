@@ -5,7 +5,7 @@ summary: A language empowering everyone to build reliable and efficient software
 ---
 
 Rust is a systems programming langauge that has gained significant popularity among developers thanks to its emphasis on safety, performance and productivity.
-I have been learning Rust since August this year and these are my opionions about rust in general and why I think that rust will be in my future tech stack
+I have been learning Rust since September this year and these are my opionions about rust in general and the following are reason why rust is the future
 
 ---
 
@@ -25,3 +25,54 @@ Let's see the mojor uses cases of Rust:
   for developing these types of systems
 - **Developing operating systems**: unsurprisingly, it’s often used to build operating systems, kernels, device drivers, or other low-level components where control over memory and performance is crucial
 - **Web development**: Rust is increasingly being used for web development—especially on the server side. The async programming model and performance characteristics of Rust make it fitting for building high-performance web servers, APIs, and backend services.
+- **Crypto and blockchain development**: Rust’s speed, memory management, and security all contribute to its involvement with cryptocurrency and blockchain technologies. For example, Polkadots,
+  which is designed to enable the interoperability and interaction
+  between multiple blockchains to share information and assets in a secure and decentralized manner,
+  utilizes Rust to build its core infrastructure.
+
+### What makes Rust special?
+
+So, what are some of the key features that make Rust so attractive to developers
+
+In simple terms, Rust solves some of developers’ most frustrating memory
+management problems commonly associated with C and C++, but that’s not its
+only shining capability. One of GitHub’s staff software engineers, Jason Orendorff,
+who co-authored a book on programming with Rust, said about the language:
+
+“To me, what’s great about Rust is that it’s both fast AND reliable,”
+according to Orendorff. “It lets me write multi-headed programs that run
+on 16 cores and keep them readable, maintainable, and crash-free. It also
+lets me write very low-level algorithms requiring control over memory layout
+and pull in a crate that makes HTTPS requests super simple. It’s the combination
+of these features that makes Rust so unique.”
+
+Building on that, here’s a few more of its well-loved characteristics and features:
+
+- **Concurrency**. Rust has built-in support for concurrent programming through its ownership system which enforces strict rules for data access, and its borrowing model, which prevents data races by allowing controlled, simultaneous access. This ensures that multiple threads can work on shared data without introducing memory-related issues.
+  No garbage collection. Unlike some programming languages, Rust does not employ garbage collection. Instead, its ownership and borrowing rules manage memory, which helps empower developers to have precise control over memory allocation and deallocation for efficient resource management.
+
+- **Cargo Package Manager**. Rust’s built-in package manager, Cargo, streamlines
+  project management, dependency tracking, and building, which helps contribute
+  to efficient and organized development workflows. But this doesn’t make it clear
+  just how bonkers the Cargo ecosystem is. According to Orendorff, “My team takes
+  advantage of high-quality open source packages for hashing, serialization,
+  multithreading, data structures, compression, and a lot more. These are
+  performance-critical libraries. Without some of these, our project to rethink
+  code search on GitHub wouldn’t have been possible.” And here’s a fun fact:
+  Rust was actually the first systems programming language to have a standard
+  package manager, and, as a result, the Rust ecosystem is incredibly robust.
+
+- **Zero-cost abstractions**. This feature allows developers to
+  write high-level code abstractions and features without introducing any
+  runtime performance overhead.
+
+- **Pattern matching**. This powerful language feature enables
+  developers to concisely and effectively match complex data structures
+  against specific patterns to extract and handle different cases or scenarios
+  in a clean and readable manner.
+
+- **Type inference**. This feature allows Rust’s compiler to
+  automatically detect an expression based on context while you code.
+  “Many programming languages have some type inference,” Orendorff said.
+  “C# and C++ have some, Rust has a little more, and languages like Haskell,
+  Scala, and ML have even more.”
