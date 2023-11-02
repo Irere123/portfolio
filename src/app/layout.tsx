@@ -68,7 +68,7 @@ export default function RootLayout({
       className={clsx("text-light-gray bg-background", font.variable)}
     >
       <body className="antialiased max-w-2xl mb-40 flex flex-col md:flex-row mx-4 mt-6 lg:mx-auto">
-        <main className="flex-auto mt-3 m-w-0">
+        <main className="flex-auto mt-3 flex flex-col min-w-0 m-w-0">
           <Sidebar />
           <Providers>{children}</Providers>
         </main>

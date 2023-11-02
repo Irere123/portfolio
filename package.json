@@ -12,6 +12,7 @@
     "clsx": "^2.0.0",
     "contentlayer": "^0.3.4",
     "date-fns": "^2.30.0",
+    "framer-motion": "^10.16.4",
     "next": "latest",
     "next-contentlayer": "^0.3.4",
     "next-nprogress-bar": "^2.1.2",

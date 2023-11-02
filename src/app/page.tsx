@@ -44,6 +44,30 @@ export default function Home() {
           ))}
         </div>
       </div>
+      <ul className="flex flex-col md:flex-row mt-8 space-x-0 md:space-x-4 space-y-2 md:space-y-0 font-sm text-neutral-600 dark:text-neutral-300">
+        <li>
+          <a
+            className="flex items-center hover:text-neutral-800 transition-all"
+            rel="noopener noreferrer"
+            target="_blank"
+            href="https://twitter.com/irere_emmanuel"
+          >
+            <ArrowIcon />
+            <p className="h-7 ml-2">follow me</p>
+          </a>
+        </li>
+        <li>
+          <a
+            className="flex items-center hover:text-neutral-800 transition-all"
+            rel="noopener noreferrer"
+            target="_blank"
+            href="mailto:irere2050@gmail.com"
+          >
+            <ArrowIcon />
+            <p className="h-7 ml-2">talk to me</p>
+          </a>
+        </li>
+      </ul>
     </section>
   );
 }
