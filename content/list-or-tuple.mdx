@@ -1,0 +1,47 @@
+---
+title: List or Tuples in Elixir
+date: 2023-11-02
+summary: What is the difference between list and tuple in Elixir
+---
+
+## What is the difference between lists and tuples?
+
+Lists are stored in memory as linked lists, meaning that each element in a list holds its value and points to the following element until the end of the list is reached.
+This means accessing the length of a list is a linear operation: We need to traverse the whole list in order to figure out its size.
+
+Similary, the performance of list concatenation depends on the length of the left-hand list:
+
+```elixir
+ iex> list [1, 2, 3]
+ [1, 2, 3]
+ # This is fast as we only need to traverse `[0]` to append to `list`
+ iex> [0] ++ list
+ [0, 1, 2, 3]
+
+ # This is slow as we need to traverse `list` to append 4
+ iex> list ++ [4]
+ [1, 2, 3, 4]
+```
+
+Tuples, on the other hand are stored contigously in memory. This means getting the tuple size or accessing an element by index is fast.
+On the other hand, updating or adding elements to tuples is expensive because it requires creating a new tuple in memory:
+
+```elixir
+ iex> tuple = {:a, :b, :c, :d}
+ {:a, :b, :c, :d}
+ iex> put_elem(tuple, 2, :e)
+ {:a, :b, :e, :d}
+```
+
+Note, however, the elements themselves are not copied. When you update a tuple, all entries are shared between the old and the new tuple, except for the
+entry that has been replaced. This rule applies to most data structures in Elixir. This reduces the amount of memory allocation the langauge needs to perform and is only possible thanks to the immutable semantics of the language.
+
+### References
+
+- <a target="_blank" href="https://hexdocs.pm/elixir/1.12/List.html">
+    Lists Docs
+  </a>
+
+- <a target="_blank" href="https://hexdocs.pm/elixir/1.12/Tuple.html">
+    Tuples Docs
+  </a>
