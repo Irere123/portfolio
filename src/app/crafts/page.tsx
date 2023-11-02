@@ -3,7 +3,7 @@ export default function CraftsPage() {
     <section>
       <div className="gap-8 columns-3 my-8">
         <div className="relative  bg-slate-500">
-          <p>hello world</p>
+          <p>hello test world</p>
         </div>
         <div className="relative  bg-blue-400">
           <p>Hello world 2</p>
