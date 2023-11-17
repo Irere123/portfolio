@@ -4,6 +4,7 @@ import { format } from "date-fns";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Balancer from "react-wrap-balancer";
+import { SignIn } from "./buttons";
 
 interface Props {
   params: { slug: string };
