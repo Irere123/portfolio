@@ -5,7 +5,6 @@ import React from "react";
 import NavItem from "./navItem";
 import { useSession } from "next-auth/react";
 import Image from "next/image";
-import Link from "next/link";
 
 const navItems = {
   "/": {
@@ -38,15 +37,13 @@ export const Sidebar: React.FC = () => {
           </div>
         </nav>
         {data?.user ? (
-          <Link href={`/u/${data.user.id}`}>
-            <Image
-              alt={data.user.name!}
-              src={data.user.image!}
-              width={40}
-              height={40}
-              className="rounded-full"
-            />
-          </Link>
+          <Image
+            alt={data.user.name!}
+            src={data.user.image!}
+            width={40}
+            height={40}
+            className="rounded-full"
+          />
         ) : data?.user ? (
           <button className="bg-neutral-300 border-neutral-100 px-3 py-2">
             Sign In

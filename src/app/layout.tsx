@@ -1,6 +1,8 @@
-import { Sidebar } from "@/components/Sidebar";
 import "./globals.css";
 import type { Metadata } from "next";
+import { Sidebar } from "@/components/Sidebar";
+import { GeistSans } from "geist/font/sans";
+import { GeistMono } from "geist/font/mono";
 import clsx from "clsx";
 
 import localFont from "next/font/local";
@@ -65,7 +67,11 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={clsx("text-light-gray bg-background", font.variable)}
+      className={clsx(
+        "text-light-gray bg-background",
+        GeistSans.variable,
+        GeistMono.variable
+      )}
     >
       <body className="antialiased max-w-2xl mb-40 flex flex-col md:flex-row mx-4 mt-6 lg:mx-auto">
         <main className="flex-auto mt-3 flex flex-col min-w-0 m-w-0">
