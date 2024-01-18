@@ -1,11 +1,18 @@
 import { ArrowIcon } from "@/components/ArrowIcon";
 import { getBlogPosts } from "@/db/blog";
 import { Suspense } from "react";
+import ViewCounter from "./blog/view-counter";
+import { getBlogViews } from "@/db/queries";
 
 interface BlogLinkProps {
   slug: string;
   name: string;
   summary: string;
+}
+
+async function Views({ slug }: { slug: string }) {
+  let views = await getBlogViews();
+  return <ViewCounter allViews={views as any} slug={slug} />;
 }
 
 async function BlogLink({ slug, name, summary }: BlogLinkProps) {
@@ -17,6 +24,9 @@ async function BlogLink({ slug, name, summary }: BlogLinkProps) {
       <div className="flex flex-col">
         <p className="font-bold text-neutral-900 ">{name}</p>
         <p>{summary}</p>
+        <Suspense fallback={<p className="h-6" />}>
+          <Views slug={slug} />
+        </Suspense>
       </div>
       <div className="text-neutral-700 ">
         <ArrowIcon />

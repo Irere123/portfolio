@@ -1,11 +1,12 @@
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
 
-import { auth } from "@/auth";
 import { getBlogPosts } from "@/db/blog";
 import { CustomMDX } from "@/components/mdx";
-import { Suspense } from "react";
-
+import { Suspense, cache } from "react";
+import ViewCounter from "../view-counter";
+import { increment } from "@/db/mutations";
+import { getBlogViews } from "@/db/queries";
 interface Props {
   params: { slug: string };
 }
@@ -124,10 +125,21 @@ export default async function BlogArticlePage({
             {formatDate(post.metadata.publishedAt)}
           </p>
         </Suspense>
+        <Suspense fallback={<p className="h-5" />}>
+          <Views slug={post.slug} />
+        </Suspense>
       </div>
       <article className="prose prose-quoteless prose-neutral">
         <CustomMDX source={post.content} />
       </article>
     </section>
   );
+}
+
+let incrementViews = cache(increment);
+
+async function Views({ slug }: { slug: string }) {
+  let views = await getBlogViews();
+  incrementViews(slug);
+  return <ViewCounter allViews={views as any} slug={slug} />;
 }
