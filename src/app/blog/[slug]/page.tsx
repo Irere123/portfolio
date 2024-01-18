@@ -1,10 +1,10 @@
 import { Mdx } from "@/components/mdx";
+import { auth } from "@/auth";
 import { allBlogs } from "contentlayer/generated";
-import { format } from "date-fns";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Balancer from "react-wrap-balancer";
-import { SignIn } from "./buttons";
+import { Hello } from "./buttons";
 
 interface Props {
   params: { slug: string };
@@ -85,8 +85,11 @@ export default async function BlogArticlePage({
 }: {
   params: { slug: string };
 }) {
+  const session = await auth();
+
   const post = allBlogs.find((post) => post.slug === params.slug);
 
+  console.log(session);
   if (!post) {
     notFound();
   }
@@ -100,6 +103,7 @@ export default async function BlogArticlePage({
         <p className="text-secondary">{formatDate(post.date)}</p>
       </div>
       <Mdx code={post.body.code} />
+      <Hello />
     </div>
   );
 }

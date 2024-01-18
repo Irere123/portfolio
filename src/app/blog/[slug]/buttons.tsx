@@ -1,5 +1,5 @@
 "use client";
-import { signIn, signOut } from "next-auth/react";
+import { signIn, signOut, useSession } from "next-auth/react";
 
 function GitHubIcon() {
   return (
@@ -45,5 +45,15 @@ export function SignIn() {
       <GitHubIcon />
       <div className="ml-3">Sign in with GitHub</div>
     </button>
+  );
+}
+
+export function Hello() {
+  const { data } = useSession();
+  console.log(data);
+  return (
+    <>
+      <p>{data?.user?.name}</p>
+    </>
   );
 }

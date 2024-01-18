@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import { SessionProvider } from "next-auth/react";
 import { AppProgressBar } from "next-nprogress-bar";
 
 interface ProvidersProps {
@@ -10,12 +11,14 @@ interface ProvidersProps {
 export const Providers: React.FC<ProvidersProps> = ({ children }) => {
   return (
     <>
-      {children}
-      <AppProgressBar
-        color="#000"
-        shallowRouting
-        options={{ showSpinner: false }}
-      />
+      <SessionProvider>
+        {children}
+        <AppProgressBar
+          color="#000"
+          shallowRouting
+          options={{ showSpinner: false }}
+        />
+      </SessionProvider>
     </>
   );
 };
