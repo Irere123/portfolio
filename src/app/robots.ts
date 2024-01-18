@@ -3,7 +3,7 @@ export default function robots() {
     rules: {
       userAgent: "*",
     },
-    sitemap: "https://irere-blog.vercel.app/sitemap.xml",
-    host: "https://irere-blog.vercel.app",
+    sitemap: "https://irere.vercel.app/sitemap.xml",
+    host: "https://irere.vercel.app",
   };
 }
