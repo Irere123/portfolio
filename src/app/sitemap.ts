@@ -1,13 +1,13 @@
-import { allBlogs } from "contentlayer/generated";
+import { getBlogPosts } from "@/db/blog";
 
 export default async function sitemap() {
-  const blogs = allBlogs.map((post) => ({
-    url: `https://irere-blog.vercel.app/blog/${post.slug}`,
-    lastModified: post.date,
+  const blogs = getBlogPosts().map((post) => ({
+    url: `https://irere.vercel.app/blog/${post.slug}`,
+    lastModified: post.metadata.publishedAt,
   }));
 
   const routes = ["", "/blog"].map((route) => ({
-    url: `https://irere-blog.vercel.app${route}`,
+    url: `https://irere.vercel.app${route}`,
     lastModified: new Date().toISOString().split("T")[0],
   }));
 
