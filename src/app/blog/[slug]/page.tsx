@@ -1,9 +1,7 @@
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
-import Balancer from "react-wrap-balancer";
 
 import { auth } from "@/auth";
-import { Hello } from "./buttons";
 import { getBlogPosts } from "@/db/blog";
 import { CustomMDX } from "@/components/mdx";
 import { Suspense } from "react";
@@ -89,7 +87,6 @@ export default async function BlogArticlePage({
   params: { slug: string };
 }) {
   let post = getBlogPosts().find((post) => post.slug === params.slug);
-
   if (!post) {
     notFound();
   }
