@@ -1,6 +1,5 @@
 import { ArrowIcon } from "@/components/ArrowIcon";
-import { PostCard } from "@/components/PostCard";
-import { allBlogs } from "contentlayer/generated";
+import { getBlogPosts } from "@/db/blog";
 import { Suspense } from "react";
 
 interface BlogLinkProps {
@@ -27,6 +26,8 @@ async function BlogLink({ slug, name, summary }: BlogLinkProps) {
 }
 
 export default function Home() {
+  const allBlogs = getBlogPosts();
+
   return (
     <section>
       <div className="space-y-2 mt-3">
@@ -37,9 +38,13 @@ export default function Home() {
           career, sharing knowledge along the way.
         </p>
         <div className="flex flex-col gap-4 pt-7">
-          {allBlogs.slice(0, 2).map((b) => (
-            <Suspense key={b.slug}>
-              <PostCard url={b.slug} title={b.title} summary={b.summary} />
+          {allBlogs.slice(0, 2).map((post) => (
+            <Suspense key={post.slug}>
+              <BlogLink
+                name={post.metadata.title}
+                slug={post.slug}
+                summary={post.metadata.summary}
+              />
             </Suspense>
           ))}
         </div>

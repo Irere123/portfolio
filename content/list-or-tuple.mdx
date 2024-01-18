@@ -1,6 +1,6 @@
 ---
 title: List or Tuples in Elixir
-date: 2023-11-02
+publishedAt: 2023-11-02
 summary: What is the difference between list and tuple in Elixir
 ---
 
@@ -11,16 +11,18 @@ This means accessing the length of a list is a linear operation: We need to trav
 
 Similary, the performance of list concatenation depends on the length of the left-hand list:
 
-```elixir
+```
  iex> list [1, 2, 3]
  [1, 2, 3]
  # This is fast as we only need to traverse `[0]` to append to `list`
  iex> [0] ++ list
  [0, 1, 2, 3]
 
- # This is slow as we need to traverse `list` to append 4
- iex> list ++ [4]
- [1, 2, 3, 4]
+# This is slow as we need to traverse `list` to append 4
+
+iex> list ++ [4]
+[1, 2, 3, 4]
+
 ```
 
 Tuples, on the other hand are stored contigously in memory. This means getting the tuple size or accessing an element by index is fast.

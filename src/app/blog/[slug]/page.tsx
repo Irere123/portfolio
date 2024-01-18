@@ -1,10 +1,12 @@
-import { Mdx } from "@/components/mdx";
-import { auth } from "@/auth";
-import { allBlogs } from "contentlayer/generated";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Balancer from "react-wrap-balancer";
+
+import { auth } from "@/auth";
 import { Hello } from "./buttons";
+import { getBlogPosts } from "@/db/blog";
+import { CustomMDX } from "@/components/mdx";
+import { Suspense } from "react";
 
 interface Props {
   params: { slug: string };
@@ -15,26 +17,27 @@ export async function generateMetadata({
 }: {
   params: any;
 }): Promise<Metadata | undefined> {
+  const allBlogs = getBlogPosts();
   const post = allBlogs.find((post) => post.slug === params.slug);
   if (!post) {
     return;
   }
 
-  const { title, slug, image, summary: description, date } = post;
+  const { metadata, slug, content } = post;
 
-  const ogImage = image
-    ? `https://irere-blog.vercel.app${image}`
-    : `https://irere-blog.vercel.app/og?title=${title}`;
+  const ogImage = metadata.image
+    ? `https://irere-blog.vercel.app${metadata.image}`
+    : `https://irere-blog.vercel.app/og?title=${metadata.image}`;
 
   return {
-    title,
-    description,
+    title: metadata.title,
+    description: metadata.summary,
     openGraph: {
-      title,
-      description,
+      title: metadata.title,
+      description: metadata.summary,
       type: "article",
-      publishedTime: date,
-      url: `https://irere-blog.vercel.app/blog/${slug}`,
+      publishedTime: metadata.publishedAt,
+      url: `https://irere.vercel.app/blog/${slug}`,
       images: [
         {
           url: ogImage,
@@ -43,8 +46,8 @@ export async function generateMetadata({
     },
     twitter: {
       card: "summary_large_image",
-      title,
-      description,
+      title: metadata.title,
+      description: metadata.summary,
       creator: "Irere Emmy",
       images: [ogImage],
     },
@@ -85,25 +88,49 @@ export default async function BlogArticlePage({
 }: {
   params: { slug: string };
 }) {
-  const session = await auth();
+  let post = getBlogPosts().find((post) => post.slug === params.slug);
 
-  const post = allBlogs.find((post) => post.slug === params.slug);
-
-  console.log(session);
   if (!post) {
     notFound();
   }
 
   return (
-    <div className="flex flex-col gap-4">
-      <div>
-        <h1 className="font-bold text-2xl tracking-tighter max-w-[650px]">
-          <Balancer>{post.title}</Balancer>
-        </h1>
-        <p className="text-secondary">{formatDate(post.date)}</p>
+    <section>
+      <script
+        type="application/ld+json"
+        suppressHydrationWarning
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BlogPosting",
+            headline: post.metadata.title,
+            datePublished: post.metadata.publishedAt,
+            dateModified: post.metadata.publishedAt,
+            description: post.metadata.summary,
+            image: post.metadata.image
+              ? `https://irere.vercel.app${post.metadata.image}`
+              : `https://irere.vercel.app/og?title=${post.metadata.title}`,
+            url: `https://irere.vercel.app/blog/${post.slug}`,
+            author: {
+              "@type": "Person",
+              name: "Irere Emmanuel",
+            },
+          }),
+        }}
+      />
+      <h1 className="title font-medium text-2xl tracking-tighter max-w-[650px]">
+        {post.metadata.title}
+      </h1>
+      <div className="flex justify-between items-center mt-2 mb-8 text-sm max-w-[650px]">
+        <Suspense fallback={<p className="h-5" />}>
+          <p className="text-sm text-neutral-600 ">
+            {formatDate(post.metadata.publishedAt)}
+          </p>
+        </Suspense>
       </div>
-      <Mdx code={post.body.code} />
-      <Hello />
-    </div>
+      <article className="prose prose-quoteless prose-neutral">
+        <CustomMDX source={post.content} />
+      </article>
+    </section>
   );
 }
