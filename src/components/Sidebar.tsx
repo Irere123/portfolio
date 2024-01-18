@@ -1,9 +1,11 @@
 "use client";
 
-import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React from "react";
 import NavItem from "./navItem";
+import { useSession } from "next-auth/react";
+import Image from "next/image";
+import Link from "next/link";
 
 const navItems = {
   "/": {
@@ -18,6 +20,7 @@ const navItems = {
 };
 
 export const Sidebar: React.FC = () => {
+  const { data } = useSession();
   let pathname = usePathname() || "/";
 
   if (pathname.includes("/blog/")) {
@@ -26,7 +29,7 @@ export const Sidebar: React.FC = () => {
 
   return (
     <aside className="-ml-[8px] mb-16 tracking-tight">
-      <div className="lg:sticky lg:top-20">
+      <div className="flex justify-between lg:sticky lg:top-20">
         <nav className="flex flex-row items-start relative fade pb-0 px-0 md:overflow-auto md:relative">
           <div className="flex  gap-3 flex-row space-x-0 pr-10">
             {Object.entries(navItems).map(([path, { name }]) => {
@@ -34,6 +37,21 @@ export const Sidebar: React.FC = () => {
             })}
           </div>
         </nav>
+        {data?.user ? (
+          <Link href={`/u/${data.user.id}`}>
+            <Image
+              alt={data.user.name!}
+              src={data.user.image!}
+              width={40}
+              height={40}
+              className="rounded-full"
+            />
+          </Link>
+        ) : data?.user ? (
+          <button className="bg-neutral-300 border-neutral-100 px-3 py-2">
+            Sign In
+          </button>
+        ) : null}
       </div>
     </aside>
   );

@@ -69,8 +69,10 @@ export default function RootLayout({
     >
       <body className="antialiased max-w-2xl mb-40 flex flex-col md:flex-row mx-4 mt-6 lg:mx-auto">
         <main className="flex-auto mt-3 flex flex-col min-w-0 m-w-0">
-          <Sidebar />
-          <Providers>{children}</Providers>
+          <Providers>
+            <Sidebar />
+            {children}
+          </Providers>
         </main>
       </body>
     </html>
