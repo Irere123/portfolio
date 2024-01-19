@@ -6,7 +6,7 @@ import { CustomMDX } from "@/components/mdx";
 import { Suspense, cache } from "react";
 import ViewCounter from "../view-counter";
 import { increment } from "@/db/mutations";
-import { getBlogViews } from "@/db/queries";
+import { getBlogViews, getViewCount } from "@/db/queries";
 interface Props {
   params: { slug: string };
 }
@@ -139,7 +139,7 @@ export default async function BlogArticlePage({
 let incrementViews = cache(increment);
 
 async function Views({ slug }: { slug: string }) {
-  let views = await getBlogViews();
+  let views = await getViewCount();
   incrementViews(slug);
-  return <ViewCounter allViews={views as any} slug={slug} />;
+  return <ViewCounter allViews={views} slug={slug} />;
 }

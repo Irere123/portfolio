@@ -2,7 +2,7 @@ import { ArrowIcon } from "@/components/ArrowIcon";
 import { getBlogPosts } from "@/db/blog";
 import { Suspense } from "react";
 import ViewCounter from "./blog/view-counter";
-import { getBlogViews } from "@/db/queries";
+import { getViewCount } from "@/db/queries";
 
 interface BlogLinkProps {
   slug: string;
@@ -11,8 +11,8 @@ interface BlogLinkProps {
 }
 
 async function Views({ slug }: { slug: string }) {
-  let views = await getBlogViews();
-  return <ViewCounter allViews={views as any} slug={slug} />;
+  let views = await getViewCount();
+  return <ViewCounter allViews={views} slug={slug} />;
 }
 
 async function BlogLink({ slug, name, summary }: BlogLinkProps) {
