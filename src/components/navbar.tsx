@@ -57,7 +57,7 @@ export const Navbar: React.FC = () => {
             </DropdownMenuTrigger>
             <DropdownMenuContent>
               <DropdownMenuItem>
-                <User className="mr-2" />
+                <User className="mr-2" width={16} height={16}/>
                 Profile
               </DropdownMenuItem>
               <DropdownMenuSeparator />
