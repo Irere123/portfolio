@@ -1,5 +1,5 @@
 # Blog
 
 - Framework: [Nextjs](https://nextjs.org)
-- Database: [Supabase](https://supabase.com)
+- Database: [Neon](https://neon.tech)
 - Deployment: [Vercel](https://vercel.com)

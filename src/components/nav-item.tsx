@@ -35,7 +35,7 @@ export default function NavItem({
         {path === pathname ? (
           <motion.div
             className="absolute h-[2px] top-7 mx-2 inset-0 bg-neutral-200 z-[-1] from-transparent to-neutral-900"
-            layoutId="sidebar"
+            layoutId="navabr"
             transition={{ type: "spring", stiffness: 360, damping: 20 }}
           />
         ) : null}

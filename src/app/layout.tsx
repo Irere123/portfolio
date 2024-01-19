@@ -1,32 +1,14 @@
 import "./globals.css";
+
 import type { Metadata } from "next";
-import { Sidebar } from "@/components/Sidebar";
 import { GeistSans } from "geist/font/sans";
 import { GeistMono } from "geist/font/mono";
 import clsx from "clsx";
 
-import localFont from "next/font/local";
-import { Providers } from "./providers";
-
-const font = localFont({
-  src: [
-    {
-      path: "../../public/fonts/Graphik-Regular.ttf",
-      weight: "400",
-      style: "normal",
-    },
-    {
-      path: "../../public/fonts/Graphik-Medium.ttf",
-      weight: "600",
-      style: "bold",
-    },
-  ],
-  variable: "--font-local",
-  display: "swap",
-});
+import { Providers } from "@/app/providers";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://irere-vercel.app"),
+  metadataBase: new URL("https://irere.vercel.app"),
   icons: {
     icon: "/favicon.ico",
   },
@@ -38,7 +20,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Irere Emmanuel",
     description: "Developer, writer, and creator.",
-    url: "https://irere-blog.vercel.app",
+    url: "https://irere.vercel.app",
     siteName: "Irere Emmanuel",
     locale: "en_US",
     type: "website",
@@ -73,13 +55,10 @@ export default function RootLayout({
         GeistMono.variable
       )}
     >
-      <body className="antialiased max-w-2xl mb-40 flex flex-col md:flex-row mx-4 mt-6 lg:mx-auto">
-        <main className="flex-auto mt-3 flex flex-col min-w-0 m-w-0">
-          <Providers>
-            <Sidebar />
-            {children}
-          </Providers>
-        </main>
+      <body className="antialiased flex">
+        <div id="app">
+          <Providers>{children}</Providers>
+        </div>
       </body>
     </html>
   );
