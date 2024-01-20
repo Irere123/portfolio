@@ -2,9 +2,11 @@
 
 import { usePathname } from "next/navigation";
 import React from "react";
-import NavItem from "./nav-item";
 import { useSession } from "next-auth/react";
+import { LogOut, User } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
+
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -12,7 +14,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "./ui/dropdown-menu";
-import { LogOut, User } from "lucide-react";
+import NavItem from "./nav-item";
 import { ThemeToggle } from "@/components/theme-toggle";
 
 const navItems = {
@@ -58,13 +60,16 @@ export const Navbar: React.FC = () => {
                 />
               </DropdownMenuTrigger>
               <DropdownMenuContent>
-                <DropdownMenuItem>
-                  <User className="mr-2" width={16} height={16} />
-                  Profile
-                </DropdownMenuItem>
+                <Link href={"/boomarks"}>
+                  <DropdownMenuItem>
+                    <User className="mr-2" width={16} height={16} />
+                    Bookmarks
+                  </DropdownMenuItem>
+                </Link>
                 <DropdownMenuSeparator />
-                <DropdownMenuItem>Bookmarks</DropdownMenuItem>
-                <DropdownMenuItem>Liked</DropdownMenuItem>
+                <Link href={`https://github.com/Irere123/portfolio`}>
+                  <DropdownMenuItem>Github</DropdownMenuItem>
+                </Link>
                 <DropdownMenuSeparator />
                 <DropdownMenuItem>
                   <LogOut width={16} height={16} className="mr-2" />
