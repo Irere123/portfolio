@@ -71,10 +71,6 @@ export const Navbar: React.FC = () => {
                 </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
-          ) : data?.user ? (
-            <button className="bg-neutral-300 border-neutral-100 px-3 py-2">
-              Sign In
-            </button>
           ) : null}
           <div>
             <ThemeToggle />
