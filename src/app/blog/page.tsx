@@ -10,7 +10,9 @@ export const metadata: Metadata = {
 };
 
 export default function BlogPage() {
-  let allBlogs = getBlogPosts().filter((post) => post.metadata.published === "true");
+  let allBlogs = getBlogPosts().filter(
+    (post) => post.metadata.published === "true",
+  );
 
   return (
     <DefaltLayout>
@@ -28,10 +30,10 @@ export default function BlogPage() {
             })
             .map((post) => (
               <Link key={post.slug} href={`/blog/${post.slug}`}>
-                <p className="text-neutral-900 font-bold">
+                <p className="text-neutral-900 font-bold dark:text-foreground">
                   {post.metadata.title}
                 </p>
-                <p className="text-neutral-600">
+                <p className="text-neutral-600 dark:text-muted-foreground">
                   {format(new Date(post.metadata.publishedAt), "MMMM d, yyyy")}
                 </p>
               </Link>

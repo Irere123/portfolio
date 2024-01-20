@@ -20,11 +20,13 @@ async function BlogLink({ slug, name, summary }: BlogLinkProps) {
   return (
     <a
       href={`/blog/${slug}`}
-      className="border border-neutral-200 bg-neutral-50 rounded flex items-center justify-between px-3 py-4 w-full"
+      className="border bg-neutral-50 dark:bg-background drak:border rounded flex items-center justify-between px-3 py-4 w-full"
     >
       <div className="flex flex-col">
-        <p className="font-bold text-neutral-900 ">{name}</p>
-        <p>{summary}</p>
+        <p className="font-bold text-neutral-900 dark:text-foreground">
+          {name}
+        </p>
+        <p className="dark:text-muted-foreground">{summary}</p>
         <Suspense fallback={<p className="h-6" />}>
           <Views slug={slug} />
         </Suspense>
@@ -43,8 +45,8 @@ export default function Home() {
     <DefaltLayout>
       <section>
         <div className="space-y-2 mt-3">
-          <p className="text-xl">hey, I am irere 🖐!</p>
-          <p>
+          <p className="text-xl font-bold">hey, I am irere 🖐!</p>
+          <p className="dark:text-muted-foreground">
             I try to keep things simple. You will find writing about
             technologies I am interested in at the time, or how I am learning
             and growing in my career, sharing knowledge along the way.

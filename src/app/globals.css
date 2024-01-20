@@ -144,7 +144,7 @@ html {
 }
 
 .prose .anchor:after {
-  @apply text-neutral-300 dark:text-neutral-700;
+  @apply text-neutral-300 dark:text-muted-foreground;
   content: "#";
 }
 
@@ -178,11 +178,15 @@ html {
 .prose h2,
 h3,
 h4 {
-  @apply font-medium tracking-tighter !important;
+  @apply font-medium dark:text-foreground tracking-tighter !important;
 }
 
 .prose strong {
-  @apply font-medium;
+  @apply font-medium dark:text-accent-foreground;
+}
+
+.prose p {
+  @apply dark:text-muted-foreground;
 }
 
 .prose > :first-child {

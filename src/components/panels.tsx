@@ -1,8 +1,9 @@
 "use client";
 
 import { useRouter } from "next/navigation"
-import Link from "next/link"
 import {Heart, Bookmark, ArrowLeft, MessageSquare } from "lucide-react"
+import { Drawer, DrawerTrigger } from "./ui/drawer";
+import { CommentSection } from "./comment-section";
 
 export const LeftPanel: React.FC<{ children: React.ReactNode }> = ({
   children,
@@ -35,7 +36,12 @@ export const ArtcleLeftPanel: React.FC<{}> = () => {
       </button>
       <Heart />
       <Bookmark />
-      <MessageSquare />
+      <Drawer>
+       <DrawerTrigger>
+        <MessageSquare />
+       </DrawerTrigger>
+       <CommentSection />
+      </Drawer>
     </div>
   )
 }

@@ -8,7 +8,7 @@ import ViewCounter from "../view-counter";
 import { increment } from "@/db/mutations";
 import { getBlogViews, getViewCount } from "@/db/queries";
 import { MainLayout } from "@/components/main-layout";
-import {  ArtcleLeftPanel } from  "@/components/panels"
+import { ArtcleLeftPanel } from "@/components/panels";
 
 interface Props {
   params: { slug: string };
@@ -39,7 +39,7 @@ export async function generateMetadata({
       description: metadata.summary,
       type: "article",
       publishedTime: metadata.publishedAt,
-      url: `https://irere.vercel.app/blog/${slug}`, 
+      url: `https://irere.vercel.app/blog/${slug}`,
       images: [
         {
           url: ogImage,
@@ -133,7 +133,7 @@ export default async function BlogArticlePage({
             <Views slug={post.slug} />
           </Suspense>
         </div>
-        <article className="prose prose-quoteless prose-neutral">
+        <article className="prose prose-quoteless prose-neutral dark:prose-invert">
           <CustomMDX source={post.content} />
         </article>
       </section>
