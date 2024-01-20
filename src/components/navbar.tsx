@@ -60,12 +60,6 @@ export const Navbar: React.FC = () => {
                 />
               </DropdownMenuTrigger>
               <DropdownMenuContent>
-                <Link href={"/boomarks"}>
-                  <DropdownMenuItem>
-                    <User className="mr-2" width={16} height={16} />
-                    Bookmarks
-                  </DropdownMenuItem>
-                </Link>
                 <DropdownMenuSeparator />
                 <Link href={`https://github.com/Irere123/portfolio`}>
                   <DropdownMenuItem>Github</DropdownMenuItem>

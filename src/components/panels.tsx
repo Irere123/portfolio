@@ -1,7 +1,7 @@
 "use client";
 
-import { useRouter } from "next/navigation"
-import {Heart, Bookmark, ArrowLeft, MessageSquare } from "lucide-react"
+import { useRouter } from "next/navigation";
+import { Heart, Bookmark, ArrowLeft, MessageSquare } from "lucide-react";
 import { Drawer, DrawerTrigger } from "./ui/drawer";
 import { CommentSection } from "./comment-section";
 
@@ -25,23 +25,21 @@ export const RightPanel: React.FC<{ children: React.ReactNode }> = ({
   );
 };
 
-
 export const ArtcleLeftPanel: React.FC<{}> = () => {
   const { back } = useRouter();
 
   return (
     <div className="flex flex-col gap-4 items-end text-">
       <button className="border p-2 rounded-md" onClick={() => back()}>
-      <ArrowLeft />
+        <ArrowLeft />
       </button>
-      <Heart />
-      <Bookmark />
+      {/* <Heart />
       <Drawer>
-       <DrawerTrigger>
-        <MessageSquare />
-       </DrawerTrigger>
-       <CommentSection />
-      </Drawer>
+        <DrawerTrigger>
+          <MessageSquare />
+        </DrawerTrigger>
+        <CommentSection />
+      </Drawer> */}
     </div>
-  )
-}
+  );
+};

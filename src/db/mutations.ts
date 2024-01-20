@@ -9,3 +9,14 @@ export async function increment(slug: string) {
    DO UPDATE SET count = views.count + 1
   `);
 }
+
+export async function bookmarks(
+  title: string,
+  summary: string,
+  userId: string
+) {
+  await db.execute(sql`
+    INSERT INTO bookmarks (title, summary, user_id)
+    VALUES (${title}, ${summary}, ${userId})
+   `);
+}
