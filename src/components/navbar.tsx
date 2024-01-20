@@ -5,14 +5,15 @@ import React from "react";
 import NavItem from "./nav-item";
 import { useSession } from "next-auth/react";
 import Image from "next/image";
-import { DropdownMenu } from "@radix-ui/react-dropdown-menu";
 import {
+  DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "./ui/dropdown-menu";
 import { LogOut, User } from "lucide-react";
+import { ThemeToggle } from "@/components/theme-toggle";
 
 const navItems = {
   "/": {
@@ -44,37 +45,42 @@ export const Navbar: React.FC = () => {
             })}
           </div>
         </nav>
-        {data?.user ? (
-          <DropdownMenu>
-            <DropdownMenuTrigger>
-              <Image
-                alt={data.user.name!}
-                src={data.user.image!}
-                width={40}
-                height={40}
-                className="rounded-full"
-              />
-            </DropdownMenuTrigger>
-            <DropdownMenuContent>
-              <DropdownMenuItem>
-                <User className="mr-2" width={16} height={16} />
-                Profile
-              </DropdownMenuItem>
-              <DropdownMenuSeparator />
-              <DropdownMenuItem>Bookmarks</DropdownMenuItem>
-              <DropdownMenuItem>Liked</DropdownMenuItem>
-              <DropdownMenuSeparator />
-              <DropdownMenuItem>
-                <LogOut width={16} height={16} className="mr-2" />
-                Logout
-              </DropdownMenuItem>
-            </DropdownMenuContent>
-          </DropdownMenu>
-        ) : data?.user ? (
-          <button className="bg-neutral-300 border-neutral-100 px-3 py-2">
-            Sign In
-          </button>
-        ) : null}
+        <div className="flex gap-4">
+          {data?.user ? (
+            <DropdownMenu>
+              <DropdownMenuTrigger>
+                <Image
+                  alt={data.user.name!}
+                  src={data.user.image!}
+                  width={40}
+                  height={40}
+                  className="rounded-full"
+                />
+              </DropdownMenuTrigger>
+              <DropdownMenuContent>
+                <DropdownMenuItem>
+                  <User className="mr-2" width={16} height={16} />
+                  Profile
+                </DropdownMenuItem>
+                <DropdownMenuSeparator />
+                <DropdownMenuItem>Bookmarks</DropdownMenuItem>
+                <DropdownMenuItem>Liked</DropdownMenuItem>
+                <DropdownMenuSeparator />
+                <DropdownMenuItem>
+                  <LogOut width={16} height={16} className="mr-2" />
+                  Logout
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
+          ) : data?.user ? (
+            <button className="bg-neutral-300 border-neutral-100 px-3 py-2">
+              Sign In
+            </button>
+          ) : null}
+          <div>
+            <ThemeToggle />
+          </div>
+        </div>
       </div>
     </aside>
   );
