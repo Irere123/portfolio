@@ -2,7 +2,11 @@ import { CustomMDX } from "@/components/mdx";
 import { getBlogPosts } from "@/db/blog";
 import { notFound } from "next/navigation";
 
-export default function EditorPage(params: { slug: string }) {
+type Props = {
+  params: { slug: string };
+};
+
+export default function EditorPage({ params }: Props) {
   const allBlogs = getBlogPosts();
   const post = allBlogs.find((post) => post.slug === params.slug);
 
