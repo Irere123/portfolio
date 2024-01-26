@@ -24,3 +24,157 @@ techniques used in the language and think that will be helpful for the next big 
   management issues with using a garbage collector but instead using those
   concepts. Thus achieving performance similar to that of ``C`` or ``C++``.
 </Callout>
+
+## Big O Notation
+
+Big O notation(with capital letter O) not a zero also called **_Landau's symbol_** is a symbolism used in complexity
+theory, computer science and the maths to describe the asympotic behaviour of functions.
+
+> Big O tells you how a function grows or declines with input
+
+The letter O is used because the rate of growth of function is also called **_Order_**
+
+> When analyzing and algorithm one might find that the time(or the number of steps) it takes to complete
+> problem of size `n` is given by T(n)= 4n^2 - 2n + 2 if we ignore the constants(which is makes sense because those depend
+> on the particular hardware the program is run on)
+> we could say that "T(n) grows at order of n^2" and write: T(n) = n^2
+
+So, if I am looking at piece of code or algorithm I ask myself like how efficient is it? Efficient covers alots of
+resources
+
+- CPU (time) usage -> Time complexity
+- Memory usage -> Space complexity
+- Disk usage
+- Network usage
+
+##### What's the difference between performance and complexity
+
+- **Performance**: how much time/memory/disk is actually being used when a program is run.This depends on the computer,
+  compiler, etc as well as the code
+
+- **Complexity**: how do the resource requirements of the program as the program or algorithm scale,
+  i.e What happens as the problem being solved gets large
+
+Complexity affects performance but not the other way around.
+
+The time required by function/procedure is prortional to the number of `basic operations` that it performs
+
+- One arithmetic operation --> eg: \*, +
+- One assignment operation --> eg: x := 0
+- One test opetation --> eg: x = y, x != 9
+- One read --> of primative type like integer of float
+- One write --> of primative type like integer of float
+
+### Overview
+
+When measuring the time complexity or the space complexity of a piece of code or algorithm we the following metric and I have ordered them in order of how much
+they grow as input grows from the best to worst
+
+<Callout emoji={"✨"}>
+  This order is not exactly how it might grow so don't be fooled by this order.
+  For example the O(n^2) performs better than the O(n) when given small
+  ``problem size`` or ``input size``
+</Callout>
+
+The following are the most common ones:
+
+- O(1) --> Constant time(Best)
+- O(log n) --> Logarithmic time(Good)
+- O(n) --> Linear time(Fair)
+- O(n^2) --> Quadratic time(Bad)
+
+Not very common:
+
+- O(2^n) --> Exponential time (Worst)
+- O(n!) --> Factorial time(Worst)
+
+### How to determine compelexities
+
+In general, how can you determine the running time of a piece of code. So to determine the time
+complexity it depends on the kinds of statements being used
+
+#### Sequence of statements
+
+```rust
+// statement 1
+// statement 2
+// .....
+// statement k
+```
+
+The total time is found by adding the times for all statements
+
+> total time = time(statement 1) + time(statement 2) + .... + time(statement k)
+
+#### If-Then-Else
+
+```rust
+ if i < 0 {
+  // block 1(sequence of statements)
+ } else {
+  // block 2(sequence of statements)
+ }
+```
+
+Either `block 1` will execute or `block 2` will execute- therefore, the worst case time is slower
+of the two possibilities
+
+> max(time(block 1), time(block 2))
+
+if block 1 takes O(1) and block 2 takes O(N) then the if-then-else statement would would be O(N)
+
+#### Loops
+
+```rust
+for i in 1..N {
+ // sequence of statements
+}
+
+```
+
+The loop executes **N** times, so the sequence of statements also executes **N** times and also have time complexity of **O(1)**,
+the total time for the loop is **N \* O(1)** which would be **O(N)** overall.
+
+#### Nested Loops
+
+```rust
+
+   for i in 1..N {
+     for j in 1..M {
+        // sequence of statements
+     }
+   }
+
+```
+
+The outer loop executes an **N** times. Every time the outer loop executes, the inner loop executes **M** times.
+As a result, the statements in the inner loop execute a total of **N \* M** times. thus the Complexity is **O(N \* M)**
+
+> In common special case where the stopping condition of the inner loop is **J < N** instead of **J < M**
+> (i.e the innner loop executes **N** times) the total complexity for the two loops is **O(N^2)**
+
+#### Statements and function/procedure calls
+
+When a statement involves a function/procedure call, the complexity of the statement includes the complexity
+of the function/procedure.
+
+Assume that you know that function/procedure takes **_f_** constant time and that function/procedure **_g_**
+takes time proportional to value of its parameter **_k_**. Then the statements have Complexity
+
+- f(k) --> O(1)
+- g(k) --> O(k)
+
+when loop is involved, the same rule applies
+
+```rust
+
+ for i in 1..N {
+  g(J)
+ }
+```
+
+### Practical analysis
+
+So Enough with the talking and let's dive into the code that showcases how Big O actually works.
+
+1. O(1) --> Constant time

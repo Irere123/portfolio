@@ -39,7 +39,9 @@ async function BlogLink({ slug, name, summary }: BlogLinkProps) {
 }
 
 export default function Home() {
-  const allBlogs = getBlogPosts();
+  const allBlogs = getBlogPosts().filter(
+    (post) => post.metadata.published === "true"
+  );
 
   return (
     <DefaltLayout>

@@ -6,13 +6,9 @@ import { CustomMDX } from "@/components/mdx";
 import { Suspense, cache } from "react";
 import ViewCounter from "../view-counter";
 import { increment } from "@/db/mutations";
-import { getBlogViews, getViewCount } from "@/db/queries";
+import { getViewCount } from "@/db/queries";
 import { MainLayout } from "@/components/main-layout";
 import { ArtcleLeftPanel } from "@/components/panels";
-
-interface Props {
-  params: { slug: string };
-}
 
 export async function generateMetadata({
   params,
@@ -25,7 +21,7 @@ export async function generateMetadata({
     return;
   }
 
-  const { metadata, slug, content } = post;
+  const { metadata, slug } = post;
 
   const ogImage = metadata.image
     ? `https://irere.vercel.app${metadata.image}`
