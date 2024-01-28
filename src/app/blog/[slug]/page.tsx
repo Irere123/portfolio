@@ -25,7 +25,7 @@ export async function generateMetadata({
 
   const ogImage = metadata.image
     ? `https://irere.vercel.app${metadata.image}`
-    : `https://irere.vercel.app/og?title=${metadata.image}`;
+    : `https://irere.vercel.app/og?title=${metadata.title}`;
 
   return {
     title: metadata.title,
