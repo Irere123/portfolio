@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import { useScreenSize } from "@/hooks/useScreenSize";
 
@@ -15,7 +17,9 @@ export const MainInnerGrid: React.FC<DashboardGridProps> = ({
   let gridTemplateColumns = "235px 640px 325px";
   let myClassName = ``;
 
-  if (screenType === "2-cols") {
+  if (screenType === "3-cols") {
+    gridTemplateColumns = "60px 640px 325px";
+  } else if (screenType === "2-cols") {
     gridTemplateColumns = "60px 640px 325px";
   } else if (screenType === "1-cols") {
     gridTemplateColumns = "60px 640px";
