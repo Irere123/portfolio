@@ -6,6 +6,7 @@ import { GeistMono } from "geist/font/mono";
 import clsx from "clsx";
 
 import { Providers } from "@/app/providers";
+import { Navbar } from "@/components/navbar";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://irere.vercel.app"),
@@ -55,10 +56,11 @@ export default function RootLayout({
         GeistMono.variable
       )}
     >
-      <body className="antialiased flex">
-        <div id="app">
-          <Providers>{children}</Providers>
-        </div>
+      <body className="antialiased flex flex-col m-auto md:max-w-2xl">
+        <Providers>
+          <Navbar />
+          {children}
+        </Providers>
       </body>
     </html>
   );

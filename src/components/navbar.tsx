@@ -15,7 +15,6 @@ import {
   DropdownMenuTrigger,
 } from "./ui/dropdown-menu";
 import NavItem from "./nav-item";
-import { ThemeToggle } from "@/components/theme-toggle";
 
 const navItems = {
   "/": {
@@ -72,9 +71,6 @@ export const Navbar: React.FC = () => {
               </DropdownMenuContent>
             </DropdownMenu>
           ) : null}
-          <div>
-            <ThemeToggle />
-          </div>
         </div>
       </div>
     </aside>

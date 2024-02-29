@@ -44,7 +44,7 @@ export default function Home() {
   );
 
   return (
-    <DefaltLayout>
+    <>
       <section>
         <div className="space-y-2 mt-3">
           <p className="text-xl font-bold">hey, I am irere 🖐!</p>
@@ -90,6 +90,6 @@ export default function Home() {
           </li>
         </ul>
       </section>
-    </DefaltLayout>
+    </>
   );
 }
