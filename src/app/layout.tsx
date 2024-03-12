@@ -3,6 +3,7 @@ import "./globals.css";
 import type { Metadata } from "next";
 import { GeistSans } from "geist/font/sans";
 import { GeistMono } from "geist/font/mono";
+import { Analytics } from "@vercel/analytics/react";
 import clsx from "clsx";
 
 import { Providers } from "@/app/providers";
@@ -57,6 +58,7 @@ export default function RootLayout({
       )}
     >
       <body className="antialiased flex flex-col m-auto md:max-w-2xl">
+        <Analytics />
         <Providers>
           <Navbar />
           {children}
