@@ -7,8 +7,6 @@ import { Suspense, cache } from "react";
 import ViewCounter from "../view-counter";
 import { increment } from "@/db/mutations";
 import { getViewCount } from "@/db/queries";
-import { MainLayout } from "@/components/main-layout";
-import { ArtcleLeftPanel } from "@/components/panels";
 
 export async function generateMetadata({
   params,

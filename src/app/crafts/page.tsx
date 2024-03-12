@@ -1,4 +1,3 @@
-import { DefaltLayout } from "@/components/default-layout";
 import { Metadata } from "next";
 import Link from "next/link";
 
