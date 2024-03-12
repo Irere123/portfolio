@@ -3,7 +3,6 @@ import { getBlogPosts } from "@/db/blog";
 import { Suspense } from "react";
 import ViewCounter from "./blog/view-counter";
 import { getViewCount } from "@/db/queries";
-import { DefaltLayout } from "@/components/default-layout";
 
 interface BlogLinkProps {
   slug: string;
