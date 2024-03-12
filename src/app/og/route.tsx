@@ -26,7 +26,7 @@ export async function GET(req: NextRequest) {
             fontSize: 130,
             letterSpacing: "-0.05em",
             fontStyle: "normal",
-            color: "gray",
+            color: "#f9f9f9",
             lineHeight: "120px",
             whiteSpace: "pre-wrap",
           }}
