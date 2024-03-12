@@ -2,7 +2,6 @@ import { format } from "date-fns";
 import { Metadata } from "next";
 import Link from "next/link";
 import { getBlogPosts } from "@/db/blog";
-import { DefaltLayout } from "@/components/default-layout";
 
 export const metadata: Metadata = {
   title: "Blog",

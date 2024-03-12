@@ -2,18 +2,7 @@
 
 import { usePathname } from "next/navigation";
 import React from "react";
-import { useSession } from "next-auth/react";
-import { LogOut } from "lucide-react";
-import Image from "next/image";
-import Link from "next/link";
 
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "./ui/dropdown-menu";
 import NavItem from "./nav-item";
 
 const navItems = {
@@ -29,7 +18,6 @@ const navItems = {
 };
 
 export const Navbar: React.FC = () => {
-  const { data } = useSession();
   let pathname = usePathname() || "/";
 
   if (pathname.includes("/blog/")) {
@@ -46,32 +34,6 @@ export const Navbar: React.FC = () => {
             })}
           </div>
         </nav>
-        <div className="flex gap-4">
-          {data?.user ? (
-            <DropdownMenu>
-              <DropdownMenuTrigger>
-                <Image
-                  alt={data.user.name!}
-                  src={data.user.image!}
-                  width={40}
-                  height={40}
-                  className="rounded-full"
-                />
-              </DropdownMenuTrigger>
-              <DropdownMenuContent>
-                <DropdownMenuSeparator />
-                <Link href={`https://github.com/Irere123/portfolio`}>
-                  <DropdownMenuItem>Github</DropdownMenuItem>
-                </Link>
-                <DropdownMenuSeparator />
-                <DropdownMenuItem>
-                  <LogOut width={16} height={16} className="mr-2" />
-                  Logout
-                </DropdownMenuItem>
-              </DropdownMenuContent>
-            </DropdownMenu>
-          ) : null}
-        </div>
       </div>
     </aside>
   );

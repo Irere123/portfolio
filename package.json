@@ -6,7 +6,8 @@
     "dev": "next dev --turbo",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "push": "drizzle-kit push:pg --config drizzle.config.ts"
   },
   "dependencies": {
     "@auth/core": "^0.21.0",
