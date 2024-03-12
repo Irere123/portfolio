@@ -7,10 +7,13 @@ export async function getViewCount() {
 }
 
 export async function getBlogViews() {
-  let count = await db.execute(sql`
+  let count = (await db.execute(sql`
     SELECT count
     FROM views
-  `);
+  `)) as any;
 
-  return count.rows.reduce((acc, curr: any) => acc + Number(curr.count), 0);
+  return count.rows.reduce(
+    (acc: any, curr: any) => acc + Number(curr.count),
+    0
+  );
 }
