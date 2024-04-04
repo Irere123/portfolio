@@ -126,7 +126,7 @@ export default async function BlogArticlePage({
           <Views slug={post.slug} />
         </Suspense>
       </div>
-      <article className="prose prose-quoteless prose-neutral dark:prose-invert">
+      <article className="prose prose-quoteless prose-neutral dark:prose-invert mb-5">
         <CustomMDX source={post.content} />
       </article>
     </section>
