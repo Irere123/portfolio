@@ -4,6 +4,7 @@ import { Suspense } from "react";
 import ViewCounter from "./blog/view-counter";
 import { getViewCount } from "@/db/queries";
 import { Navbar } from "@/components/navbar";
+import AboutMe from "@/components/about-me";
 
 interface BlogLinkProps {
   slug: string;
@@ -42,10 +43,7 @@ export default function Home() {
   return (
     <>
       <Navbar title="About me" />
-      <div className="2xl:pb-36 lg:py-16 md:pb-5 md:pt-5 mx-auto pt-4 pb-12  sm:py-12 px-4">
-        <h1 className="">About me</h1>
-        <p>I am chris</p>
-      </div>
+      <AboutMe />
     </>
   );
 }
