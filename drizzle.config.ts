@@ -1,8 +1,9 @@
 import { Config } from "drizzle-kit";
 import * as dotenv from "dotenv";
+import { prod } from "@/lib/constants";
 
 dotenv.config({
-  path: ".env.local",
+  path: prod ? ".env.local" : ".env.prod",
 });
 
 export default {
