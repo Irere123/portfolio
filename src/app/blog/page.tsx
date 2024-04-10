@@ -163,14 +163,14 @@ export default function BlogPage() {
           <section className="prose prose-quoteless prose-neutral dark:prose-invert mb-5">
             <h2>About me</h2>
             <div>
-              <p>Hi, I'm Emmanuel</p>
+              <p>Hi&lsquo; I&apos;m Emmanuel</p>
               <p>
-                I'm a{" "}
+                I&apos;m a{" "}
                 <span className="line-through dark:text-red-300 text-red-400">
                   fullstack software developer
                 </span>{" "}
-                problem solver based in Rwanda, currently working on{" "}
-                <a href="https://github.com/irere123/spek">Spek</a>.
+                problem solver based in Rwanda&lsquo; currently working on{" "}
+                <a href="https://github.com/irere123/spek">Spek</a>&rsquo;
               </p>
               <p>
                 I joined in 2023 Rwanda Coding Academy where I specialize in
@@ -178,22 +178,25 @@ export default function BlogPage() {
                 software
               </p>
               <p>
-                I'm a seriously into Typescript & Elixir, I write about tech and
-                stuff on my blog and sometimes post on X(Twitter) about tech and
-                general stuff.
+                I&apos;m a seriously into Typescript & Elixir&lsquo; I write
+                about tech and stuff on my blog and sometimes post on X(Twitter)
+                about tech and general stuff&rsquo;
               </p>
               <p>
-                Professionally, you can find more details in my{" "}
-                <a href="/resume.pdf">résumé</a> if you're interested.
+                Professionally&lsquo; you can find more details in my{" "}
+                <a href="/resume.pdf">résumé</a> if you&apos;re
+                interested&rsquo;
               </p>
             </div>
             <h2>Contact</h2>
             <div>
               <p>
-                I'm known as <code>irere123</code>, or{" "}
-                <code>irere emmanuel</code> in most places on the internet, such
-                as on <a href="https://github.com/irere123">GitHub</a>, or
-                <a href="https://twitter.com/irere_emmanuel"> Twitter</a>.
+                I&apos;m known as <code>irere123</code>&lsquo; or{" "}
+                <code>irere emmanuel</code> in most places on the
+                internet&lsquo; such as on{" "}
+                <a href="https://github.com/irere123">GitHub</a>
+                &lsquo; or
+                <a href="https://twitter.com/irere_emmanuel"> Twitter</a>&rsquo;
               </p>
             </div>
           </section>
