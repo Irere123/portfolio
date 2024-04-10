@@ -30,7 +30,10 @@ export default function Sidebar() {
           <Resume />
           <p>Resume</p>
         </Link>
-        <Link href={`/rss`} className="flex gap-2 items-center cursor-pointer">
+        <Link
+          href={`/sitemap.xml`}
+          className="flex gap-2 items-center cursor-pointer"
+        >
           <Rss />
           <p>RSS</p>
         </Link>

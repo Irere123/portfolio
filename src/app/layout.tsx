@@ -7,7 +7,6 @@ import { Analytics } from "@vercel/analytics/react";
 import clsx from "clsx";
 
 import { Providers } from "@/app/providers";
-import { BlogList } from "@/components/blog-list";
 import Sidebar from "@/components/sidebar";
 
 export const metadata: Metadata = {
@@ -16,7 +15,7 @@ export const metadata: Metadata = {
     icon: "/favicon.ico",
   },
   title: {
-    default: "Irere Emmanuel",
+    default: "Irere Emmanuel | About me",
     template: "%s | Irere Emmanuel",
   },
   description: "Developer, writer, and creator.",

@@ -1,6 +1,5 @@
 import Link from "next/link";
 import React from "react";
-import { Menu } from "./icons";
 
 interface NavbarProps {
   title: string;
@@ -11,26 +10,24 @@ export const Navbar: React.FC<NavbarProps> = ({ title, isMain = false }) => {
   return (
     <nav className="2xl:hidden justify-between duration-300 ease-in-out border-b p-4 sticky top-0 backdrop-blur-md transform-gpu transition w-full z-40 flex">
       <div className="2xl:h-10 flex flex-grow items-center justify-between my-1 space-x-4">
-        {isMain ? null : (
-          <Link href={`/blog`}>
-            <div className="md:invisible cursor-pointer select-none">
-              <svg
-                className="h-4 w-4 shrink-0"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M7 16l-4-4m0 0l4-4m-4 4h18"
-                ></path>
-              </svg>
-            </div>
-          </Link>
-        )}
+        <Link href={`/blog`}>
+          <div className="md:invisible cursor-pointer select-none">
+            <svg
+              className="h-4 w-4 shrink-0"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M7 16l-4-4m0 0l4-4m-4 4h18"
+              ></path>
+            </svg>
+          </div>
+        </Link>
         <p className="font-bold line-clamp-1">{title}</p>
         <svg
           className="h-4 w-4 shrink-0 invisible"
