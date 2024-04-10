@@ -9,6 +9,7 @@ import { increment } from "@/db/mutations";
 import { getViewCount } from "@/db/queries";
 import { BlogList } from "@/components/blog-list";
 import { Navbar } from "@/components/navbar";
+import { formatDate } from "@/lib/formatDate";
 
 export async function generateMetadata({
   params,
@@ -52,35 +53,6 @@ export async function generateMetadata({
   };
 }
 
-function formatDate(date: string) {
-  const currentDate = new Date();
-  const targetDate = new Date(date);
-
-  const yearsAgo = currentDate.getFullYear() - targetDate.getFullYear();
-  const monthsAgo = currentDate.getMonth() - targetDate.getMonth();
-  const daysAgo = currentDate.getDate() - targetDate.getDate();
-
-  let formattedDate = "";
-
-  if (yearsAgo > 0) {
-    formattedDate = `${yearsAgo}y ago`;
-  } else if (monthsAgo > 0) {
-    formattedDate = `${monthsAgo}mo ago`;
-  } else if (daysAgo > 0) {
-    formattedDate = `${daysAgo}d ago`;
-  } else {
-    formattedDate = "Today";
-  }
-
-  const fullDate = targetDate.toLocaleString("en-us", {
-    month: "long",
-    day: "numeric",
-    year: "numeric",
-  });
-
-  return `${fullDate} (${formattedDate})`;
-}
-
 export default async function BlogArticlePage({
   params,
 }: {
@@ -92,20 +64,9 @@ export default async function BlogArticlePage({
   }
 
   return (
-    <main
-      className="
-    transition
-    transform-gpu
-    ease-in-out
-    duration-300
-    grow
-    overflow-hidden
-    relative
-    md:flex
-  "
-    >
+    <main className="transition transform-gpu ease-in-out duration-300 grow overflow-hidden relative md:flex">
       <main className="brightness-50 hidden md:block absolute duration-300 ease-in-out h-full max-h-full md:border-r md:brightness-100 md:relative md:transition-none md:w-128 overflow-y-scroll transform-gpu transition w-full">
-        <nav className="duration-300 ease-in-out border-b p-4 sticky top-0 backdrop-blur-md transform-gpu transition w-full z-40 flex">
+        <nav className="duration-300 ease-in-out bg-background border-b p-4 sticky top-0 backdrop-blur-md transform-gpu transition w-full z-40 flex">
           <p className="text-lg">All posts</p>
         </nav>
         <BlogList />
