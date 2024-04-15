@@ -62,7 +62,7 @@ export default function BlogPage() {
                         <p>Posts</p>
                       </Link>
                       <Link
-                        href={`/resume.pdf`}
+                        href={`/resume`}
                         className="flex gap-2 items-center cursor-pointer"
                       >
                         <Resume />

@@ -24,7 +24,7 @@ export default function Sidebar() {
           <p>About me</p>
         </Link>
         <Link
-          href={`/resume.pdf`}
+          href={`/resume`}
           className="flex gap-2 items-center cursor-pointer"
         >
           <Resume />
