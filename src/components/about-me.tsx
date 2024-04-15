@@ -6,7 +6,7 @@ export default function AboutMe() {
   return (
     <main className="transition transform-gpu ease-in-out duration-300 grow overflow-hidden relative md:flex">
       <main className="brightness-50 hidden md:block absolute duration-300 ease-in-out h-full max-h-full md:border-r md:brightness-100 md:relative md:transition-none md:w-128 overflow-y-auto transform-gpu transition w-full">
-        <nav className="duration-300 ease-in-out border-b p-4 sticky top-0 backdrop-blur-md transform-gpu transition w-full z-40 flex">
+        <nav className="bg-background duration-300 ease-in-out border-b p-4 sticky top-0 backdrop-blur-md transform-gpu transition w-full z-40 flex">
           <p className="text-lg">All posts</p>
         </nav>
         <BlogList />
