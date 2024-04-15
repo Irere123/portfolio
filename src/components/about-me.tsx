@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { BlogList } from "./blog-list";
 import { Navbar } from "./navbar";
 
@@ -37,7 +38,7 @@ export default function AboutMe() {
               </p>
               <p>
                 Professionally, you can find more details in my{" "}
-                <a href="/resume.pdf">résumé</a> if you're interested.
+                <Link href="/resume">résumé</Link> if you're interested.
               </p>
             </div>
             <h2>Contact</h2>
