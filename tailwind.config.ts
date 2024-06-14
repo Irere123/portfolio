@@ -28,6 +28,9 @@ const config = {
           },
         },
       },
+      spacing: {
+        128: "40rem",
+      },
       fontFamily: {
         sans: ["var(--font-geist-sans)"],
         mono: ["var(--font-geist-mono)"],

@@ -1,4 +1,5 @@
 import { ArrowIcon } from "@/components/ArrowIcon";
+import { MobileDrawer } from "@/components/MobileDrawer";
 import { BlogList } from "@/components/blog-list";
 import {
   Fingerprint,
@@ -27,116 +28,22 @@ export default function BlogPage() {
         <nav className="bg-background duration-300 ease-in-out border-b p-4 sticky top-0 backdrop-blur-md transform-gpu transition w-full z-40 flex">
           <div className="2xl:h-10 flex flex-grow items-center justify-between my-1 space-x-4">
             <div className="2xl:invisible cursor-pointer select-none">
-              <Drawer>
-                <DrawerTrigger>
-                  <svg
-                    className="h-4 w-4"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M4 6h16M4 12h16M4 18h16"
-                    ></path>
-                  </svg>
-                </DrawerTrigger>
-                <DrawerContent>
-                  <div>
-                    <div className="flex flex-col gap-4 justify-center p-6">
-                      <Link
-                        href={`/`}
-                        className="flex gap-2 items-center cursor-pointer"
-                      >
-                        <Fingerprint />
-                        <p>About me</p>
-                      </Link>
-                      <Link
-                        href={`/blog`}
-                        className="flex gap-2 items-center cursor-pointer"
-                      >
-                        <Posts />
-                        <p>Posts</p>
-                      </Link>
-                      <Link
-                        href={`/resume`}
-                        className="flex gap-2 items-center cursor-pointer"
-                      >
-                        <Resume />
-                        <p>Resume</p>
-                      </Link>
-                      <Link
-                        href={`/sitemap.xml`}
-                        className="flex gap-2 items-center cursor-pointer"
-                      >
-                        <Rss />
-                        <p>RSS</p>
-                      </Link>
-                    </div>
-                    <div className="p-6">
-                      <p className="text-muted-foreground ">External</p>
-                      <div className="flex flex-col gap-3 mt-4">
-                        <div className="flex gap-2 items-center justify-between cursor-pointer">
-                          <a
-                            target="_blank"
-                            href="https://github.com/irere123"
-                            className="flex gap-2"
-                          >
-                            <Github width={22} height={22} />
-                            <p>Github</p>
-                          </a>
-                          <ArrowIcon width={10} height={10} />
-                        </div>
-                        <a
-                          target="_blank"
-                          href="https:/twitter.com/irere_emmanuel"
-                          className="flex gap-2 items-center justify-between cursor-pointer"
-                        >
-                          <div className="flex gap-2">
-                            <Twitter width={20} height={20} />
-                            <p>Twitter</p>
-                          </div>
-                          <ArrowIcon width={10} height={10} />
-                        </a>
-                        <a
-                          target="_blank"
-                          href="https://rw.linkedin.com/in/irere-emmanuel"
-                          className="flex gap-2 items-center justify-between cursor-pointer"
-                        >
-                          <div className="flex gap-2">
-                            <LinkedIn width={20} height={20} />
-
-                            <p>Linked in</p>
-                          </div>
-                          <ArrowIcon width={10} height={10} />
-                        </a>
-                      </div>
-                    </div>
-                    <div className="p-6">
-                      <p className="text-muted-foreground">Projects & Work</p>
-                      <div className="flex flex-col gap-3 mt-4">
-                        <div className="flex gap-2 items-center justify-between cursor-pointer">
-                          <div className="flex gap-2">
-                            <LinkIcon width={18} height={18} />
-                            <p>Spek</p>
-                          </div>
-                          <ArrowIcon width={10} height={10} />
-                        </div>
-                        <div className="flex gap-2 items-center justify-between cursor-pointer">
-                          <div className="flex gap-2">
-                            <LinkIcon width={18} height={18} />
-                            <p>Neox</p>
-                          </div>
-                          <ArrowIcon width={10} height={10} />
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </DrawerContent>
-              </Drawer>
+              <MobileDrawer>
+                <svg
+                  className="h-4 w-4"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M4 6h16M4 12h16M4 18h16"
+                  ></path>
+                </svg>
+              </MobileDrawer>
             </div>
             <p className="font-bold md:font-normal">All Posts</p>
             <svg

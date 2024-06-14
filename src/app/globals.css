@@ -207,7 +207,7 @@ pre {
 /* for firefox */
 * {
   scrollbar-width: thin;
-  scrollbar-color: var(--accent) rgba(0, 0, 0, 0);
+  scrollbar-color: hsl(var(--accent)) rgba(0, 0, 0, 0);
 }
 
 /* for non-firefox */
