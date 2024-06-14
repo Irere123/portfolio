@@ -6,7 +6,7 @@ import {
   LinkIcon,
   LinkedIn,
   Resume,
-  Rss,
+  Experiments,
   Twitter,
 } from "./icons";
 
@@ -34,27 +34,22 @@ export default function Sidebar() {
           href={`/sitemap.xml`}
           className="flex gap-2 items-center cursor-pointer"
         >
-          <Rss />
-          <p>RSS</p>
+          <Experiments />
+          <p>Experiments</p>
         </Link>
       </div>
       <div className="p-6">
         <p className="text-muted-foreground ">External</p>
         <div className="flex flex-col gap-3 mt-4">
           <div className="flex gap-2 items-center justify-between cursor-pointer">
-            <a
-              target="_blank"
-              href="https://github.com/irere123"
-              className="flex gap-2"
-            >
+            <Link href="/github" className="flex gap-2">
               <Github width={22} height={22} />
               <p>Github</p>
-            </a>
+            </Link>
             <ArrowIcon width={10} height={10} />
           </div>
-          <a
-            target="_blank"
-            href="https:/twitter.com/irere_emmanuel"
+          <Link
+            href="/twitter"
             className="flex gap-2 items-center justify-between cursor-pointer"
           >
             <div className="flex gap-2">
@@ -62,10 +57,9 @@ export default function Sidebar() {
               <p>Twitter</p>
             </div>
             <ArrowIcon width={10} height={10} />
-          </a>
-          <a
-            target="_blank"
-            href="https://rw.linkedin.com/in/irere-emmanuel"
+          </Link>
+          <Link
+            href="/linkedin"
             className="flex gap-2 items-center justify-between cursor-pointer"
           >
             <div className="flex gap-2">
@@ -74,7 +68,7 @@ export default function Sidebar() {
               <p>Linked in</p>
             </div>
             <ArrowIcon width={10} height={10} />
-          </a>
+          </Link>
         </div>
       </div>
       <div className="p-6">
@@ -85,14 +79,30 @@ export default function Sidebar() {
               <LinkIcon width={18} height={18} />
               <p>Spek</p>
             </div>
-            <ArrowIcon width={10} height={10} />
+            <Link href={`https://github.com/irere123/spek`} target="_blank">
+              <ArrowIcon width={10} height={10} />
+            </Link>
+          </div>
+          <div className="flex gap-2 items-center justify-between cursor-pointer">
+            <div className="flex gap-2">
+              <LinkIcon width={18} height={18} />
+              <p>Kepto</p>
+            </div>
+            <Link
+              href={`https://github.com/irere123/kepto.dev`}
+              target="_blank"
+            >
+              <ArrowIcon width={10} height={10} />
+            </Link>
           </div>
           <div className="flex gap-2 items-center justify-between cursor-pointer">
             <div className="flex gap-2">
               <LinkIcon width={18} height={18} />
               <p>Neox</p>
             </div>
-            <ArrowIcon width={10} height={10} />
+            <Link href={`https://github.com/irere123/NEOX-UI`} target="_blank">
+              <ArrowIcon width={10} height={10} />
+            </Link>
           </div>
         </div>
       </div>
