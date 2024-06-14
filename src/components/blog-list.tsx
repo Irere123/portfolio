@@ -4,7 +4,8 @@ import Link from "next/link";
 
 export function BlogList() {
   let allBlogs = getBlogPosts().filter(
-    (post) => post.metadata.published === "true"
+    (post) =>
+      post.metadata.published === "true" && post.metadata.type != "experiment"
   );
 
   return (
