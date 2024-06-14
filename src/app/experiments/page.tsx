@@ -1,14 +1,16 @@
 import { MobileDrawer } from "@/components/MobileDrawer";
-import { BlogList } from "@/components/blog-list";
+import { ExperimentsList } from "@/components/experiment-list";
+
 import { Navbar } from "@/components/navbar";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Blog",
-  description: "Read my thoughts on software development, design and more",
+  title: "Experiments",
+  description:
+    "Exploring to know more. If can't create it don't understand it well enough.",
 };
 
-export default function BlogPage() {
+export default function ExperimentsPage() {
   return (
     <main className="transition transform-gpu ease-in-out duration-300 grow overflow-hidden relative md:flex">
       <main className="absolute duration-300 ease-in-out h-full max-h-full md:border-r md:brightness-100 md:relative md:transition-none md:w-128 overflow-y-auto transform-gpu transition w-full">
@@ -32,7 +34,7 @@ export default function BlogPage() {
                 </svg>
               </MobileDrawer>
             </div>
-            <p className="font-bold md:font-normal">All Posts</p>
+            <p className="font-bold md:font-normal">Experiments</p>
             <svg
               className="h-4 w-4 shrink-0 invisible"
               xmlns="http://www.w3.org/2000/svg"
@@ -49,48 +51,31 @@ export default function BlogPage() {
             </svg>
           </div>
         </nav>
-        <BlogList />
+        <ExperimentsList />
       </main>
       <article className="translate-x-full absolute duration-300 ease-in-out h-full max-h-full max-w-none md:relative md:transition-none md:translate-x-0 overflow-y-auto transform-gpu transition-transform w-full">
         <Navbar title="About me" />
         <div className="flex justify-center 2xl:pb-36 lg:py-16 md:pb-5 md:pt-5 mx-auto pt-4 pb-12  sm:py-12 px-4">
           <section className="prose prose-quoteless prose-neutral dark:prose-invert mb-5">
-            <h2>About me</h2>
-            <div>
-              <p>Hi&lsquo; I&apos;m Emmanuel</p>
-              <p>
-                I&apos;m a{" "}
-                <span className="line-through dark:text-red-300 text-red-400">
-                  fullstack software developer
-                </span>{" "}
-                problem solver based in Rwanda&lsquo; currently working on{" "}
-                <a href="https://github.com/irere123/spek">Spek</a>&rsquo;
-              </p>
-              <p>
-                I joined in 2023 Rwanda Coding Academy where I specialize in
-                Software programming and Embedded systems both hardware and
-                software
-              </p>
-              <p>
-                I&apos;m a seriously into Typescript & Elixir&lsquo; I write
-                about tech and stuff on my blog and sometimes post on X(Twitter)
-                about tech and general stuff&rsquo;
-              </p>
-              <p>
-                Professionally&lsquo; you can find more details in my{" "}
-                <a href="/resume.pdf">résumé</a> if you&apos;re
-                interested&rsquo;
-              </p>
-            </div>
-            <h2>Contact</h2>
+            <h2>Experimental mind</h2>
             <div>
               <p>
-                I&apos;m known as <code>irere123</code>&lsquo; or{" "}
-                <code>irere emmanuel</code> in most places on the
-                internet&lsquo; such as on{" "}
-                <a href="https://github.com/irere123">GitHub</a>
-                &lsquo; or
-                <a href="https://twitter.com/irere_emmanuel"> Twitter</a>&rsquo;
+                <strong>
+                  &ldquo; What I cannot create, I do not understand. Know how to
+                  solve every problem that has been solved &rdquo;
+                </strong>{" "}
+                - Richard Feynman
+              </p>
+              <p>
+                I want to explore things that have been created it order to
+                become an expert in what I do which is sofware programming.
+                That's why I opt-in to experimenting with the technologies
+              </p>
+              <p>
+                Experiments is a showcase of work done to push boundaries of web
+                technology, creating beautiful, unique web experiences. You'll
+                find helpful links throughout the site for creating your own
+                experiments, and you can also explore resources like WebGL Globe
               </p>
             </div>
           </section>

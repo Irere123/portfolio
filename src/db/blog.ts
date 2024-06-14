@@ -7,6 +7,7 @@ type Metadata = {
   summary: string;
   image?: string;
   published: string;
+  type?: string;
   reading_time_minutes: string;
   tags: string;
 };

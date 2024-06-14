@@ -3,14 +3,11 @@ import { notFound } from "next/navigation";
 
 import { getBlogPosts } from "@/db/blog";
 import { CustomMDX } from "@/components/mdx";
-import { Suspense, cache } from "react";
-import ViewCounter from "../view-counter";
-import { increment } from "@/db/mutations";
-import { getViewCount } from "@/db/queries";
-import { BlogList } from "@/components/blog-list";
+import { Suspense } from "react";
 import { Navbar } from "@/components/navbar";
 import { formatDate } from "@/lib/formatDate";
 import { MobileDrawer } from "@/components/MobileDrawer";
+import { ExperimentsList } from "@/components/experiment-list";
 
 export async function generateMetadata({
   params,
@@ -86,9 +83,9 @@ export default async function BlogArticlePage({
               </svg>
             </MobileDrawer>
           </div>
-          <p className="font-bold md:font-normal">All posts</p>
+          <p className="font-bold md:font-normal">Experiments</p>
         </nav>
-        <BlogList />
+        <ExperimentsList />
       </main>
       <article className="absolute duration-300 ease-in-out h-full max-h-full max-w-none md:relative md:transition-none md:translate-x-0 overflow-y-scroll transform-gpu transition-transform w-full">
         <Navbar title={post.metadata.title} />
@@ -124,9 +121,6 @@ export default async function BlogArticlePage({
                 {formatDate(post.metadata.publishedAt)}
               </p>
             </Suspense>
-            <Suspense fallback={<p className="h-5" />}>
-              <Views slug={post.slug} />
-            </Suspense>
           </div>
           <article className="prose prose-quoteless prose-neutral dark:prose-invert mb-5">
             <CustomMDX source={post.content} />
@@ -135,12 +129,4 @@ export default async function BlogArticlePage({
       </article>
     </main>
   );
-}
-
-let incrementViews = cache(increment);
-
-async function Views({ slug }: { slug: string }) {
-  let views = await getViewCount();
-  incrementViews(slug);
-  return <ViewCounter allViews={views} slug={slug} />;
 }

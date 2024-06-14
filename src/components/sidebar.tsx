@@ -31,7 +31,7 @@ export default function Sidebar() {
           <p>Resume</p>
         </Link>
         <Link
-          href={`/sitemap.xml`}
+          href={`/experiments`}
           className="flex gap-2 items-center cursor-pointer"
         >
           <Experiments />
