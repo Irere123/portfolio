@@ -10,6 +10,7 @@ import { getViewCount } from "@/db/queries";
 import { BlogList } from "@/components/blog-list";
 import { Navbar } from "@/components/navbar";
 import { formatDate } from "@/lib/formatDate";
+import { MobileDrawer } from "@/components/MobileDrawer";
 
 export async function generateMetadata({
   params,
@@ -67,6 +68,24 @@ export default async function BlogArticlePage({
     <main className="transition transform-gpu ease-in-out duration-300 grow overflow-hidden relative md:flex">
       <main className="brightness-50 hidden md:block absolute duration-300 ease-in-out h-full max-h-full md:border-r md:brightness-100 md:relative md:transition-none md:w-128 overflow-y-scroll transform-gpu transition w-full">
         <nav className="duration-300 ease-in-out bg-background border-b p-4 sticky top-0 backdrop-blur-md transform-gpu transition w-full z-40 flex">
+          <div className="2xl:invisible cursor-pointer select-none">
+            <MobileDrawer>
+              <svg
+                className="h-4 w-4"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M4 6h16M4 12h16M4 18h16"
+                ></path>
+              </svg>
+            </MobileDrawer>
+          </div>
           <p className="text-lg">All posts</p>
         </nav>
         <BlogList />
@@ -99,7 +118,7 @@ export default async function BlogArticlePage({
           <h1 className="title font-medium text-2xl tracking-tighter max-w-[650px]">
             {post.metadata.title}
           </h1>
-          <div className="flex justify-between items-center mt-2 mb-8 text-sm max-w-[650px]">
+          <div className="flex justify-between gap-5 items-center mt-2 mb-8 text-sm max-w-[650px]">
             <Suspense fallback={<p className="h-5" />}>
               <p className="text-sm text-neutral-600 ">
                 {formatDate(post.metadata.publishedAt)}
