@@ -8,6 +8,7 @@ import clsx from "clsx";
 
 import { Providers } from "@/app/providers";
 import Sidebar from "@/components/sidebar";
+import Background from "@/components/Background";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://irere.vercel.app"),
@@ -62,9 +63,12 @@ export default function RootLayout({
         <main className="h-screen">
           <div className="flex flex-col max-h-full h-full 2xl:flex-row">
             <Analytics />
+
             <Providers>
-              <Sidebar />
-              {children}
+              <Background>
+                <Sidebar />
+                {children}
+              </Background>
             </Providers>
           </div>
         </main>
