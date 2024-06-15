@@ -42,7 +42,7 @@ export const MobileDrawer: React.FC<{ children: React.ReactNode }> = ({
               <p>Resume</p>
             </Link>
             <Link
-              href={`/sitemap.xml`}
+              href={`/experiments`}
               className="flex gap-2 items-center cursor-pointer"
             >
               <Experiments />
