@@ -92,7 +92,7 @@ export default async function BlogArticlePage({
       </main>
       <article className="absolute duration-300 ease-in-out h-full max-h-full max-w-none md:relative md:transition-none md:translate-x-0 overflow-y-scroll transform-gpu transition-transform w-full">
         <Navbar title={post.metadata.title} />
-        <section className="flex justify-center flex-col  items-center 2xl:pb-36 lg:py-16 md:pb-5 md:pt-5 mx-auto pt-4 pb-12 sm:py-12 px-4">
+        <div className="flex justify-center flex-col items-center 2xl:pb-36 lg:py-16 md:pb-5 md:pt-5 mx-auto pt-4 pb-12 sm:py-12 px-4">
           <script
             type="application/ld+json"
             suppressHydrationWarning
@@ -128,10 +128,10 @@ export default async function BlogArticlePage({
               <Views slug={post.slug} />
             </Suspense>
           </div>
-          <article className="prose prose-quoteless lg:py-16 md:pb-5 md:pt-5 mx-auto pt-4 prose-neutral dark:prose-invert sm:py-12 pb-4 px-4">
-            <CustomMDX source={post.content} />
-          </article>
-        </section>
+        </div>
+        <article className="prose prose-quoteless lg:py-16 md:pb-5 md:pt-5 mx-auto pt-4 prose-neutral dark:prose-invert sm:py-12 pb-4 px-4">
+          <CustomMDX source={post.content} />
+        </article>
       </article>
     </main>
   );

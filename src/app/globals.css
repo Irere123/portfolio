@@ -88,37 +88,10 @@
   * {
     @apply border-border;
   }
+
   body {
     @apply bg-background text-foreground;
   }
-}
-
-/* Remove Safari input shadow on mobile */
-input[type="text"],
-input[type="email"] {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-}
-
-.prose .tweet a {
-  text-decoration: inherit;
-  font-weight: 500;
-}
-
-table {
-  display: block;
-  max-width: fit-content;
-  overflow-x: auto;
-  white-space: nowrap;
-}
-
-.prose .callout > p {
-  margin: 0 !important;
-}
-
-.title {
-  text-wrap: balance;
 }
 
 html {
@@ -144,7 +117,7 @@ html {
 }
 
 .prose .anchor:after {
-  @apply text-neutral-300 dark:text-muted-foreground;
+  @apply text-neutral-300 dark:text-neutral-700;
   content: "#";
 }
 
@@ -178,15 +151,11 @@ html {
 .prose h2,
 h3,
 h4 {
-  @apply font-medium dark:text-foreground tracking-tighter !important;
+  @apply font-medium tracking-tighter !important;
 }
 
 .prose strong {
-  @apply font-medium dark:text-accent-foreground;
-}
-
-.prose p {
-  @apply dark:text-muted-foreground;
+  @apply font-medium;
 }
 
 .prose > :first-child {
@@ -202,6 +171,34 @@ pre::-webkit-scrollbar {
 pre {
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
+}
+
+/* Remove Safari input shadow on mobile */
+input[type="text"],
+input[type="email"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.prose .tweet a {
+  text-decoration: inherit;
+  font-weight: 500;
+}
+
+table {
+  display: block;
+  max-width: fit-content;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+.prose .callout > p {
+  margin: 0 !important;
+}
+
+.title {
+  text-wrap: balance;
 }
 
 /* for firefox */
