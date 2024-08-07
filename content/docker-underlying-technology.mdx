@@ -3,7 +3,7 @@ title: Docker underlying technology
 publishedAt: 2024-08-07
 summary: Do you even know how docker works under the hood. Okay now is the right time to know it
 published: true
-reading_time_minutes: 5
+reading_time_minutes: 25
 tags: docker linux namespaces cgroups
 ---
 
@@ -13,15 +13,15 @@ runs in a seperate namespace.
 
 Without going too deep yet, let first get a refreshment on some of the docker concepts.
 
-- A container think it as a single package that contains everything needed to run a process. For example it can container
+- A container think it as a single package that contains everything needed to run a process. For example it can contain
   a Node environment, the backend code and the compiled React code.
 
   Any machine that runs a container using the image, will then be able to run
   the application as it was build without needing anything else pre-installed on the
   host machine.
 
-- An Image is read-only meaning once you have created an image you can not change its content and you would have to build a new one for
-  those changes. It's a template for creating a Docker container often an image is based on an image with some additional personal touches.
+- An Image is read-only meaning once you have created an image you can not change its content and you would need to build a new one for
+  those changes to take effect. It's a template for creating a Docker container often an image is based on an image with some additional personal touches.
 
 - A `Dockerfile` is a text-based script with simple syntax similar to usual linux commands. It provides instruction
   set on how to build the image. Each instruction in the dockerfile creates a layer in the image, when you change the Dockerfile
@@ -37,8 +37,8 @@ This isolation of a process in Docker under the hood is using `Kernel namespaces
 - Then, What is a Namespace, Wikipedia defines Namespaces as a feature of the Linux kernel that partition kernel resources such that one set of processes
   sees one set of resources, while another set of processes sees a different set of resources
 
-Isolating processes from each service and its associated processes from other services means that there is a smaller **blast radius for changes**. ie. if there is
-an error the error stays in that process and does not affect other services
+Isolating processes from each service and its associated processes from other services means that there is a smaller **blast radius for changes**. If there is
+an error, the effects of that error stays in that process and does not affect other services running.
 
 Containers gives developers isolated environment that looks and feels like a VM, but it not a VM - It's a process running somewhere on the server.
 Namespaces and cgroups are like I said are features of the Linux kernel then how does Docker work on Windows and Mac OS
@@ -47,8 +47,7 @@ Namespaces and cgroups are like I said are features of the Linux kernel then how
 
 So Docker uses namespaces and they are unique to the Linux kernel. you might wonder how Docker is able to work on MacOS and Windows machines.
 
-Answer is simple: Docker runs a virtual machine in your local machine when you install Docker Desktop
-Docker uses `VirtualBox` this is the default virtual machine that comes with docker
+Answer is simple: Docker runs a virtual machine in your local machine. When you install Docker Desktop it uses `VirtualBox`, this is the default virtual machine that comes with docker
 
 #### Containers and VMs
 
@@ -59,7 +58,7 @@ With a virtual machine you're booting a new OS distribution on your machine with
 This middleware translates kernel calls to a sytem call that your host can understand
 
 <Callout emoji="🧐">
-  A system call (aka syscall) is a computer program requesting a service from
+  A system call (a.k.a syscall) is a computer program requesting a service from
   the OS on which it's running. services include, accessing hard disk drive,
   creation and execution of new process and communition of intergral kernel
   services
@@ -83,21 +82,49 @@ On other hand Linux containers make use of Linux namespaces to provide an illusi
 
 ## Namespaces
 
-There are a few types of linux kernel namespaces and every type of namespace will isolate a different set of resources on our system:
+There are many types of linux kernel namespaces and every type of namespace will isolate a different set of resources on our system let's look at few important ones:
 
-- User namespace: Contains an independent set of user IDs and group IDs that can be assigned to processes
-- PID namespaces: Contains its own set of processes IDs. Every time you create a new namespace you will get assigned PID1. Every child process created under the same namespace will get subsequent PIDs
-- Mount namespace: allow management of mount points in our system. Doing an unmount in our namespace won't have
+- **User namespace**: Contains an independent set of user IDs and group IDs that can be assigned to processes
+- **PID namespaces**: Contains its own set of processes IDs. Every time you create a new namespace you will get assigned PID1. Every child process created under the same namespace will get subsequent PIDs
+- **Mount namespace**: allow management of mount points in our system. Doing an unmount in our namespace won't have
   any effect on the main host as every new mount will be private to the namespace.
 
 > A mount point is a directory on a file system that is logically linked to another file sytem. Mount points are used to make the data on a diffent physical storage drive easily available in a folder structure.
 > mount points are comman in Unix, Linux, and macOS Windows can use mount points but it is not common.
 
-- Network namespace: Virtualizes the network stack for the new namespace. This means that the new namespace will have its own interfaces , private IPs, IP route table and socket.
-- IPC (Inter-process communication): Allow defined shared memory segments between processes within a namespace
+- **Network namespace**: Virtualizes the network stack for the new namespace. This means that the new namespace will have its own interfaces , private IPs, IP route table and socket.
+- **IPC (Inter-process communication)**: Allow defined shared memory segments between processes within a namespace
   for interprocess communication, not interfering with other namespaces
 
-- CGroup(Control Groups) namespaces: They limit resource usage in our system (CPU, memory, disk, etc) for a particular set of processes under the same namespace. (Very important in the containerization world of systems like Docker)
+- **CGroup(Control Groups)** namespaces: They limit resource usage in our system (CPU, memory, disk, etc) for a particular set of processes under the same namespace. (Very important in the containerization world of systems like Docker)
+
+Like I said we have only scratched the surface there other types of namespaces. The following table shows the namespace types available on Linux.
+The second column of the table shows the flag value that is used to specify the namespace type in various APIs. The last column is a summary of the resources that are
+isolated by the namespace type.
+
+<Table
+  data={{
+    headers: ["Name", "Flag", "Isolates"],
+    rows: [
+      // row 1
+      ["Cgroup", "CLONE_NEWCGROUP", "Cgroup root directory"],
+      // row 2
+      ["IPC", "CLONE_NEWIPC", "System V IPC, POSIX message queues"],
+      // row 3
+      ["Network", "CLONE_NEWNET", "Network devices, stacks, ports, etc"],
+      // row 4
+      ["Mount", "CLONE_NEWNS", "Mount points"],
+      // row 5
+      ["PID", "CLONE_NEWPID", "Process IDs"],
+      // row 6
+      ["Time", "CLONE_NEWTIME", "Boot and monotonic clocks"],
+      // row 7
+      ["User", "CLONE_NEWUSER", "User and group IDs"],
+      // row 8
+      ["UTS", "CLONE_NEWUTS", "Hostname and NIS domain name"],
+    ],
+  }}
+/>
 
 ### Creating a simple namespace
 
@@ -117,13 +144,13 @@ The root user in the namespace can not do any harm outside this namespace we cre
 
 The use of namespaces is not transparent to the users, and that's why most Docker users don't understand containers in the way they actually are.
 
-There is is a considerable number of people in the sector that see containers as some sort of virtual machines that does not contain the kernel, but shares it with the host instead. This is a wrong understanding of docker containers.
+**There is is a considerable number of people in the sector that see containers as some sort of virtual machines that does not contain the kernel, but shares it with the host instead. This is a wrong understanding of docker containers.**
 
 ### Why namespaces?
 
 Namespaces allows you to isolate resources. One troublesome resource won't take down the host compeletely, it'll only affect those processes in the same namespace. Also namespaces allow security because processes running, under a given namespace, won't give access to the whole system. Whatever the hacker does will always be contained within the boundaries of that namespace.
 
-Now we have only scratched the surface and in the next series of this article we will look into volumes and dimystify there inner working stay tuned of more follow or DM me in X(formerly Twitter) for updates and questions
+Now we have only scratched the surface and in the next series of this article we will look into volumes and demystify there inner working stay tuned of more follow or DM me in X(formerly Twitter) for updates and questions
 
 ## Further reading
 
