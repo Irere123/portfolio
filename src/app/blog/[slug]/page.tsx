@@ -129,7 +129,7 @@ export default async function BlogArticlePage({
             </Suspense>
           </div>
         </div>
-        <article className="prose prose-quoteless lg:py-16 md:pb-5 mx-auto prose-neutral dark:prose-invert pb-4 px-4">
+        <article className="prose prose-quoteless md:pb-5 mx-auto prose-neutral dark:prose-invert pb-4 px-4">
           <CustomMDX source={post.content} />
         </article>
       </article>
