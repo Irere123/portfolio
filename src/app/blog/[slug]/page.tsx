@@ -66,8 +66,8 @@ export default async function BlogArticlePage({
 
   return (
     <main className="transition transform-gpu ease-in-out duration-300 grow overflow-hidden relative md:flex">
-      <main className="brightness-50 hidden md:block absolute duration-300 ease-in-out h-full max-h-full md:border-r md:brightness-100 md:relative md:transition-none md:w-128 overflow-y-scroll transform-gpu transition w-full">
-        <nav className="duration-300 ease-in-out bg-background border-b p-4 sticky top-0 backdrop-blur-md transform-gpu transition w-full z-40 flex items-center gap-4">
+      <main className="brightness-50 hidden md:block absolute duration-300 ease-in-out h-full max-h-full md:border-r md:brightness-100 md:relative md:transition-none md:w-128 overflow-y-auto transform-gpu transition w-full">
+        <nav className="bg-background duration-300 ease-in-out border-b p-5 items-center gap-5 sticky top-0 backdrop-blur-md transform-gpu transition w-full z-40 flex">
           <div className="2xl:invisible cursor-pointer select-none">
             <MobileDrawer>
               <svg
