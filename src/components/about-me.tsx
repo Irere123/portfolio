@@ -57,7 +57,7 @@ export default function AboutMe() {
               </p>
               <p>
                 Professionally, you can find more details in my{" "}
-                <Link href="/resume">résumé</Link> if you're interested.
+                <Link href="/github">résumé</Link> if you're interested.
               </p>
             </div>
             <h2>Contact</h2>
