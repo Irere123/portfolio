@@ -7,7 +7,7 @@ import {
   LinkIcon,
   LinkedIn,
   Posts,
-  Resume,
+  // Resume,
   Twitter,
 } from "./icons";
 import { ArrowIcon } from "./ArrowIcon";
@@ -34,13 +34,13 @@ export const MobileDrawer: React.FC<{ children: React.ReactNode }> = ({
               <Posts />
               <p>Posts</p>
             </Link>
-            <Link
+            {/* <Link
               href={`/resume`}
               className="flex gap-2 items-center cursor-pointer"
             >
               <Resume />
               <p>Resume</p>
-            </Link>
+            </Link> */}
             <Link
               href={`/experiments`}
               className="flex gap-2 items-center cursor-pointer"

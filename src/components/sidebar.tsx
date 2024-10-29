@@ -5,7 +5,7 @@ import {
   Github,
   LinkIcon,
   LinkedIn,
-  Resume,
+  // Resume,
   Experiments,
   Twitter,
 } from "./icons";
@@ -23,13 +23,13 @@ export default function Sidebar() {
           <Fingerprint />
           <p>About me</p>
         </Link>
-        <Link
+        {/* <Link
           href={`/resume`}
           className="flex gap-2 items-center cursor-pointer"
         >
           <Resume />
           <p>Resume</p>
-        </Link>
+        </Link> */}
         <Link
           href={`/experiments`}
           className="flex gap-2 items-center cursor-pointer"
@@ -80,6 +80,18 @@ export default function Sidebar() {
               <p>Spek</p>
             </div>
             <Link href={`https://github.com/irere123/spek`} target="_blank">
+              <ArrowIcon width={10} height={10} />
+            </Link>
+          </div>
+          <div className="flex gap-2 items-center justify-between cursor-pointer">
+            <div className="flex gap-2">
+              <LinkIcon width={18} height={18} />
+              <p>Relaunch</p>
+            </div>
+            <Link
+              href={`https://github.com/irere123/relaunch-v2`}
+              target="_blank"
+            >
               <ArrowIcon width={10} height={10} />
             </Link>
           </div>
