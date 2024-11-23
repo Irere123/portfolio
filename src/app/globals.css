@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Meddon&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -110,6 +112,12 @@ html {
 
 .anchor:hover {
   @apply visible;
+}
+
+.font-meddon {
+  font-family: "Meddon", cursive;
+  font-weight: 400;
+  font-style: normal;
 }
 
 .prose a {

@@ -7,7 +7,7 @@ import { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Experiments",
   description:
-    "Exploring to know more. If can't create it don't understand it well enough.",
+    "Exploring to know more. If can't create it you don't understand it well enough.",
 };
 
 export default function ExperimentsPage() {
@@ -59,7 +59,7 @@ export default function ExperimentsPage() {
           <section className="prose prose-quoteless prose-neutral dark:prose-invert mb-5">
             <h2>Experimental mind</h2>
             <div>
-              <p>
+              <p className="font-meddon">
                 <strong>
                   &ldquo; What I cannot create, I do not understand. Know how to
                   solve every problem that has been solved &rdquo;

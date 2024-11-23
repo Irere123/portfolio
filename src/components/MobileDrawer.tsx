@@ -7,8 +7,7 @@ import {
   LinkIcon,
   LinkedIn,
   Posts,
-  // Resume,
-  Twitter,
+  XIcon,
 } from "./icons";
 import { ArrowIcon } from "./ArrowIcon";
 
@@ -69,8 +68,8 @@ export const MobileDrawer: React.FC<{ children: React.ReactNode }> = ({
                 className="flex gap-2 items-center justify-between cursor-pointer"
               >
                 <div className="flex gap-2">
-                  <Twitter width={20} height={20} />
-                  <p>Twitter</p>
+                  <XIcon width={20} height={20} />
+                  <p>X (Twitter)</p>
                 </div>
                 <ArrowIcon width={10} height={10} />
               </a>
@@ -82,7 +81,7 @@ export const MobileDrawer: React.FC<{ children: React.ReactNode }> = ({
                 <div className="flex gap-2">
                   <LinkedIn width={20} height={20} />
 
-                  <p>Linked in</p>
+                  <p>Linkedin</p>
                 </div>
                 <ArrowIcon width={10} height={10} />
               </a>
@@ -91,20 +90,39 @@ export const MobileDrawer: React.FC<{ children: React.ReactNode }> = ({
           <div className="p-6">
             <p className="text-muted-foreground">Projects & Work</p>
             <div className="flex flex-col gap-3 mt-4">
-              <div className="flex gap-2 items-center justify-between cursor-pointer">
+              <Link
+                href={"https://relaunch.irere.dev"}
+                target="_blank"
+                className="flex gap-2 items-center justify-between cursor-pointer"
+              >
+                <div className="flex gap-2">
+                  <LinkIcon width={18} height={18} />
+                  <p>Relaunch</p>
+                </div>
+                <ArrowIcon width={10} height={10} />
+              </Link>
+              <Link
+                href={"https://github.com/withspek/spek"}
+                target="_blank"
+                className="flex gap-2 items-center justify-between cursor-pointer"
+              >
                 <div className="flex gap-2">
                   <LinkIcon width={18} height={18} />
                   <p>Spek</p>
                 </div>
                 <ArrowIcon width={10} height={10} />
-              </div>
-              <div className="flex gap-2 items-center justify-between cursor-pointer">
+              </Link>
+              <Link
+                href={"https://github.com/irere123/NEOX-UI"}
+                target="_blank"
+                className="flex gap-2 items-center justify-between cursor-pointer"
+              >
                 <div className="flex gap-2">
                   <LinkIcon width={18} height={18} />
                   <p>Neox</p>
                 </div>
                 <ArrowIcon width={10} height={10} />
-              </div>
+              </Link>
             </div>
           </div>
         </div>
