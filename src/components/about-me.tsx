@@ -36,28 +36,21 @@ export default function AboutMe() {
           <section className="prose prose-quoteless prose-neutral dark:prose-invert mb-5">
             <h2>About me</h2>
             <div>
-              <p>Hi, I'm Emmanuel</p>
               <p>
-                I'm a{" "}
-                <span className="line-through dark:text-red-300 text-red-400">
-                  fullstack software developer
-                </span>{" "}
-                problem solver based in Rwanda, currently working on{" "}
-                <a href="https://github.com/irere123/spek">Spek</a>.
+                I&lsquo;m a software engineer with 5+ years of experience
+                developing web applications and services, as well as providing
+                technical leadership for small teams of software developers.
               </p>
               <p>
-                I joined in 2023 Rwanda Coding Academy where I specialize in
-                Software programming and Embedded systems both hardware and
-                software
+                I&lsquo;m fluent in Go, Typescript, C, SQL, and English.
+                I&lsquo;ve also written a good amount of JavaScript, HTML, C++,
+                and Elixir. I learn quickly, care about detail, and love
+                computer science and astronomy.
               </p>
               <p>
-                I'm a seriously into Typescript & Elixir, I write about tech and
-                stuff on my blog and sometimes post on X(Twitter) about tech and
-                general stuff.
-              </p>
-              <p>
-                Professionally, you can find more details in my{" "}
-                <Link href="/github">résumé</Link> if you're interested.
+                I live in Rwanda, but I have the right to travel anywhere. I
+                lived and worked in Rwanda from birth to present, and I&lsquo;m
+                open to remote work and some travel.
               </p>
             </div>
             <h2>Contact</h2>

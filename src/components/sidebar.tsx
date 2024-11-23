@@ -65,7 +65,7 @@ export default function Sidebar() {
         </div>
       </div>
       <div className="p-6">
-        <p className="text-muted-foreground">Projects & Work</p>
+        <p className="text-muted-foreground">Showcase</p>
         <div className="flex flex-col gap-3 mt-4">
           <Link
             href={`https://relaunch.irere.dev`}
