@@ -11,14 +11,14 @@ Docker is written in Go and built on top of **linux kernnel namespaces and cgrou
 to deliver its functionality. Namespaces provide a layer of isolation. Each aspect of a container
 runs in a seperate namespace.
 
-Without going too deep yet, let first get a refreshment on some of the docker concepts.
+Without going too deep yet, let's first get a refreshment on some of the docker concepts.
 
-- A container think it as a single package that contains everything needed to run a process. For example it can contain
-  a Node environment, the backend code and the compiled React code.
+- A container, think it as a single package that contains everything needed to run a process. For example it can contain
+  a Node environment, the backend code, and the compiled React code.
 
-  Any machine that runs a container using the image, will then be able to run
-  the application as it was build without needing anything else pre-installed on the
-  host machine.
+  Any machine that runs a container using that image, will be able to run
+  the application without needing anything else pre-installed on the
+  host machine other than docker.
 
 - An Image is read-only meaning once you have created an image you can not change its content and you would need to build a new one for
   those changes to take effect. It's a template for creating a Docker container often an image is based on an image with some additional personal touches.
@@ -34,7 +34,7 @@ This isolation of a process in Docker under the hood is using `Kernel namespaces
 
 > cgroups and kernel namespaces are tools in the linux system that helps to own isolated processes
 
-- Then, What is a Namespace, Wikipedia defines Namespaces as a feature of the Linux kernel that partition kernel resources such that one set of processes
+- Wikipedia defines Namespaces as a feature of the Linux kernel that partition kernel resources such that one set of processes
   sees one set of resources, while another set of processes sees a different set of resources
 
 Isolating processes from each service and its associated processes from other services means that there is a smaller **blast radius for changes**. If there is
@@ -45,9 +45,9 @@ Namespaces and cgroups are like I said are features of the Linux kernel then how
 
 #### Docker on Windows and Mac OS
 
-So Docker uses namespaces and they are unique to the Linux kernel. you might wonder how Docker is able to work on MacOS and Windows machines.
+So Docker uses namespaces and they are unique to the Linux kernel. Now you wonder, how Docker is able to work on MacOS and Windows machines?
 
-Answer is simple: Docker runs a virtual machine in your local machine. When you install Docker Desktop it uses `VirtualBox`, this is the default virtual machine that comes with docker
+Answer is simple: Docker runs a virtual machine in your local machine. When you install Docker Desktop it uses `VirtualBox` under the hood to run a linux virtual machine.
 
 #### Containers and VMs
 
